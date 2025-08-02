@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb4l525hynp0g"
-path="res://.godot/imported/bullet_frame.png-ad58607e5d5fb035daa8d955bb3a35df.ctex"
+uid="uid://cnkot5grqrrdn"
+path="res://.godot/imported/revolver_slice_2.png-4d7bf296635136c3db6401f6ec5cd6eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/aim/bullet_frame.png"
-dest_files=["res://.godot/imported/bullet_frame.png-ad58607e5d5fb035daa8d955bb3a35df.ctex"]
+source_file="res://assets/hub/revolver_slice_2.png"
+dest_files=["res://.godot/imported/revolver_slice_2.png-4d7bf296635136c3db6401f6ec5cd6eb.ctex"]
 
 [params]
 
