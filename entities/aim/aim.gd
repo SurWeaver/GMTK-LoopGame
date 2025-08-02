@@ -32,7 +32,7 @@ func _exit_tree() -> void:
 
 func _ready() -> void:
 	last_correct_barrel_angle = bullets_transform_node.rotation
-	barrel = UserBarrels.selected_barrel
+	barrel = UserBarrels.current_barrel
 	bullets = barrel.get_enumerator()
 	aim_shape = %AimShape.shape as CircleShape2D
 	aim_shape.radius = bullets.current().aim_radius

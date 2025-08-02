@@ -8,5 +8,6 @@ const TEMPLATES = {
 const LEVELS: LevelCollection = preload("res://data/levels/levels.tres")
 
 const PATHS = {
-	"user_save": "user://save.res"
+	"user_save": "user://save.res",
+	"user_barrels": "user://barrels.res"
 }
