@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vxdp45uyuatd"
-path="res://.godot/imported/aim_center.png-684348c6c41a7ca212362732469b5aaa.ctex"
+uid="uid://ctln3pqhd8eo5"
+path="res://.godot/imported/bullet.png-a9c1c0522750a3dcc35f313e3ff8f4fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/new_aim/aim_center.png"
-dest_files=["res://.godot/imported/aim_center.png-684348c6c41a7ca212362732469b5aaa.ctex"]
+source_file="res://assets/hud/aim/bullet.png"
+dest_files=["res://.godot/imported/bullet.png-a9c1c0522750a3dcc35f313e3ff8f4fa.ctex"]
 
 [params]
 

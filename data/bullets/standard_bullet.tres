@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BulletInfo" load_steps=3 format=3 uid="uid://bqyqi10qp764n"]
 
 [ext_resource type="Script" uid="uid://by0iuv1jq87nv" path="res://models/bullet_info.gd" id="1_h57j6"]
-[ext_resource type="Texture2D" uid="uid://ctln3pqhd8eo5" path="res://assets/hud/new_aim/bullet.png" id="2_es0q8"]
+[ext_resource type="Texture2D" uid="uid://ctln3pqhd8eo5" path="res://assets/hud/aim/bullet.png" id="2_es0q8"]
 
 [resource]
 script = ExtResource("1_h57j6")
