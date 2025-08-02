@@ -4,6 +4,7 @@ extends Node2D
 const HIT_DURATION: float = 0.2
 const APPEAR_DURATION: float = 0.5
 const DEATH_DURATION: float = 0.5
+const MAX_APPEAR_DELAY: float = 0.5
 
 signal died
 
@@ -54,7 +55,7 @@ func animate_death() -> void:
 	tween.tween_callback(queue_free)
 
 func get_random_delay() -> float:
-	return Random.get_float(0, 0.5)
+	return Random.get_float(0, MAX_APPEAR_DELAY)
 
 func take_damage(damage_amount: float) -> void:
 	if hp <= 0:
