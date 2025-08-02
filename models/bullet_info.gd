@@ -12,7 +12,7 @@ extends Resource
 @export var recoil_speed: float = 4
 @export var recoil_duration: float = 0.1
 
-@export var damage: float = 1
+@export var damage: float = 5
 
 @export var distance_damage_multiplier: float = 0
 
