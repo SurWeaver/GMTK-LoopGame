@@ -1,0 +1,124 @@
+extends Node2D
+
+const BULLET_ANGLE: float = deg_to_rad(60)
+const BULLET_SWITCH_TIME: float = 0.2
+
+
+enum State {
+	AIM,
+	RECOIL,
+}
+
+var barrel: BarrelInfo
+
+@onready var bullets_transform_node: Node2D = %Bullets
+@onready var target_tracker: TargetTracker = $TargetTracker
+
+var bullets: BarrelEnumerator
+
+var current_state: State = State.AIM
+
+var viewport: Viewport
+
+var aim_shape: CircleShape2D
+var last_recoil_direction: Vector2
+
+func _enter_tree() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+
+func _exit_tree() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func _ready() -> void:
+	barrel = UserBarrels.selected_barrel
+	bullets = barrel.get_enumerator()
+	aim_shape = %AimShape.shape as CircleShape2D
+	aim_shape.radius = bullets.current().aim_radius
+	initialize_look(bullets)
+
+	bullets.reset()
+
+	viewport = get_viewport()
+
+@warning_ignore("shadowed_variable")
+func initialize_look(bullets: BarrelEnumerator) -> void:
+	for bullet_sprite in %BulletSprites.get_children():
+		bullet_sprite.texture = bullets.current().texture
+		bullets.next()
+
+
+func _process(_delta: float) -> void:
+	match current_state:
+		State.AIM:
+			aiming()
+
+func aiming() -> void:
+	position = viewport.get_mouse_position()
+
+	if Input.is_action_just_pressed("shoot"):
+		animate_recoil()
+		animate_bullet_switch()
+
+		shoot()
+
+		bullets.next()
+		aim_shape.radius = bullets.current().aim_radius
+
+func animate_recoil() -> void:
+	var current_bullet = bullets.current()
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	var angle_error = Random.get_float(-current_bullet.recoil_angle, current_bullet.recoil_angle)
+	last_recoil_direction = Vector2.from_angle(Vector2.UP.angle() + deg_to_rad(angle_error))
+
+	tween.tween_method(recoil, current_bullet.recoil_speed, 0, current_bullet.recoil_duration)
+
+	tween.tween_callback(switch_to_aim)
+
+func recoil(amount: float) -> void:
+	var current_position: Vector2 = viewport.get_mouse_position()
+	var delta = last_recoil_direction * amount
+
+	viewport.warp_mouse(current_position + delta)
+
+func switch_to_aim() -> void:
+	current_state = State.AIM
+
+func animate_bullet_switch() -> void:
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	var new_angle = bullets_transform_node.rotation - BULLET_ANGLE
+	tween.tween_property(bullets_transform_node, "rotation", new_angle, BULLET_SWITCH_TIME)
+
+
+func shoot() -> void:
+	var current_bullet = bullets.current()
+	var areas = target_tracker.get_overlapping_areas()
+	for damage_area in areas:
+		damage_target(damage_area, current_bullet)
+	pass
+
+func damage_target(area: TargetArea, bullet: BulletInfo) -> void:
+	var multiplier = area.damage_multiplier
+	var target = area.target
+
+	var base_damage = bullet.damage
+	var total_damage = base_damage
+
+#	Прибавление бонуса/штрафа за дистанцию
+	total_damage += base_damage * target.distance * bullet.distance_damage_multiplier
+
+	total_damage *= multiplier
+
+#	TODO: Цифры урона с иным цветом, если крит-зона
+	if multiplier > 1:
+		pass
+
+	target.take_damage(total_damage)
+	#if
+
+
+	#var total_damage = bullet.damage * multiplier * (1 + target.distance * bullet.distance_damage_multiplier)
+
+
+	pass

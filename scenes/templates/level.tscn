@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://bq35t5wmegbco"]
+
+[ext_resource type="Script" uid="uid://p732avb48khk" path="res://scenes/templates/level.gd" id="1_7t2ac"]
+[ext_resource type="Texture2D" uid="uid://cxitbvywk8q0g" path="res://assets/level/sky.png" id="1_cys57"]
+[ext_resource type="Texture2D" uid="uid://r2peeaawg5rs" path="res://assets/level/clouds.png" id="2_6wv38"]
+[ext_resource type="Texture2D" uid="uid://b6p27s27ea8em" path="res://assets/level/foreground.png" id="2_4870q"]
+[ext_resource type="PackedScene" uid="uid://qa4wk616efql" path="res://entities/aim/aim.tscn" id="3_6wv38"]
+[ext_resource type="Texture2D" uid="uid://cguax3gg0uu1q" path="res://assets/level/ground_4.png" id="3_71kdh"]
+[ext_resource type="Texture2D" uid="uid://2h0nh31djkws" path="res://assets/level/ground_3.png" id="4_7t2ac"]
+[ext_resource type="Script" uid="uid://dj65ni1cf32pk" path="res://tools/parallax_scroller.gd" id="5_6wv38"]
+[ext_resource type="Texture2D" uid="uid://3adatnxhl7mh" path="res://assets/level/ground_2.png" id="5_uxwct"]
+[ext_resource type="Texture2D" uid="uid://wptv3d8lvhbe" path="res://assets/level/ground_1.png" id="6_50dgq"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_7t2ac")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sky" type="Sprite2D" parent="Background"]
+texture = ExtResource("1_cys57")
+centered = false
+
+[node name="Parallax2D" type="Parallax2D" parent="Background"]
+repeat_size = Vector2(3840, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D"]
+texture = ExtResource("2_6wv38")
+centered = false
+
+[node name="Layers" type="Node2D" parent="."]
+
+[node name="Ground4" type="Sprite2D" parent="Layers"]
+texture = ExtResource("3_71kdh")
+centered = false
+
+[node name="TargetLayer" type="Node2D" parent="Layers"]
+
+[node name="Ground3" type="Sprite2D" parent="Layers"]
+texture = ExtResource("4_7t2ac")
+centered = false
+
+[node name="TargetLayer2" type="Node2D" parent="Layers"]
+
+[node name="Ground2" type="Sprite2D" parent="Layers"]
+texture = ExtResource("5_uxwct")
+centered = false
+
+[node name="TargetLayer3" type="Node2D" parent="Layers"]
+
+[node name="Ground1" type="Sprite2D" parent="Layers"]
+texture = ExtResource("6_50dgq")
+centered = false
+
+[node name="Foreground" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Foreground"]
+texture = ExtResource("2_4870q")
+centered = false
+
+[node name="Aim" parent="." instance=ExtResource("3_6wv38")]
+position = Vector2(689, 1447)
+
+[node name="ParallaxScroller" type="Node" parent="." node_paths=PackedStringArray("parallax")]
+script = ExtResource("5_6wv38")
+parallax = NodePath("../Background/Parallax2D")
+speed = 25.0
+metadata/_custom_type_script = "uid://dj65ni1cf32pk"

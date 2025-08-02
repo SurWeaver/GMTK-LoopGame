@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BarrelInfo" load_steps=4 format=3 uid="uid://cthg8ws4nme8a"]
+
+[ext_resource type="Script" uid="uid://by0iuv1jq87nv" path="res://models/bullet_info.gd" id="1_8v2ed"]
+[ext_resource type="Resource" uid="uid://bqyqi10qp764n" path="res://data/bullets/standard_bullet.tres" id="2_aax0t"]
+[ext_resource type="Script" uid="uid://ceyo6j7yeei18" path="res://models/barrel_info.gd" id="3_1xeoh"]
+
+[resource]
+script = ExtResource("3_1xeoh")
+bullets = Array[ExtResource("1_8v2ed")]([ExtResource("2_aax0t"), ExtResource("2_aax0t"), ExtResource("2_aax0t"), ExtResource("2_aax0t"), ExtResource("2_aax0t"), ExtResource("2_aax0t")])
+metadata/_custom_type_script = "uid://ceyo6j7yeei18"
