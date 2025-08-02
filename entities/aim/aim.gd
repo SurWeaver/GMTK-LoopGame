@@ -22,6 +22,7 @@ var viewport: Viewport
 
 var aim_shape: CircleShape2D
 var last_recoil_direction: Vector2
+var last_correct_barrel_angle: float
 
 func _enter_tree() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
@@ -30,6 +31,7 @@ func _exit_tree() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _ready() -> void:
+	last_correct_barrel_angle = bullets_transform_node.rotation
 	barrel = UserBarrels.selected_barrel
 	bullets = barrel.get_enumerator()
 	aim_shape = %AimShape.shape as CircleShape2D
@@ -87,8 +89,10 @@ func switch_to_aim() -> void:
 func animate_bullet_switch() -> void:
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-	var new_angle = bullets_transform_node.rotation - BULLET_ANGLE
-	tween.tween_property(bullets_transform_node, "rotation", new_angle, BULLET_SWITCH_TIME)
+	var new_angle = last_correct_barrel_angle - BULLET_ANGLE
+	tween.tween_property(bullets_transform_node, "rotation", new_angle, BULLET_SWITCH_TIME)\
+		.from(last_correct_barrel_angle)
+	last_correct_barrel_angle = new_angle
 
 
 func shoot() -> void:
