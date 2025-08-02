@@ -6,6 +6,7 @@ extends Resource
 #@export var effects: Array[Effect]
 
 @export var texture: Texture2D
+@export var color: Color = Color.WHITE
 
 @export var recoil_angle: float = 5
 @export var recoil_speed: float = 4

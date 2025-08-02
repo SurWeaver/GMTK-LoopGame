@@ -45,7 +45,9 @@ func _ready() -> void:
 @warning_ignore("shadowed_variable")
 func initialize_look(bullets: BarrelEnumerator) -> void:
 	for bullet_sprite in %BulletSprites.get_children():
-		bullet_sprite.texture = bullets.current().texture
+		var current_bullet = bullets.current()
+		bullet_sprite.texture = current_bullet.texture
+		bullet_sprite.modulate = current_bullet.color
 		bullets.next()
 
 
