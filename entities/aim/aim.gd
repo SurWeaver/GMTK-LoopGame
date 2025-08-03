@@ -5,12 +5,15 @@ signal earned_points(points: int)
 const BULLET_ANGLE: float = deg_to_rad(60)
 
 
+
 enum State {
 	AIM,
 	RECOIL,
 }
 
 var barrel: BarrelInfo
+
+var enabled: bool = false
 
 @export var damage_number_layer: CanvasItem
 
@@ -33,6 +36,11 @@ func _enter_tree() -> void:
 
 func _exit_tree() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func enable() -> void:
+	enabled = true
+func disable() -> void:
+	enabled = false
 
 func _ready() -> void:
 	last_correct_barrel_angle = bullets_transform_node.rotation
@@ -61,7 +69,7 @@ func _process(_delta: float) -> void:
 		process_shoot()
 
 func process_shoot() -> void:
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and enabled:
 		current_state = State.RECOIL
 		animate_recoil()
 		animate_bullet_switch()

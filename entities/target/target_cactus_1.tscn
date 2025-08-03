@@ -46,7 +46,7 @@ polygon = PackedVector2Array(-459, -498, -178, -557, -179, -493, -165, -471, -14
 
 [node name="TargetArea2" type="Area2D" parent="TargetAreas" node_paths=PackedStringArray("target")]
 script = ExtResource("4_bdlth")
-damage_multiplier = 2.0
+damage_multiplier = 3.0
 target = NodePath("../..")
 metadata/_custom_type_script = "uid://d0ilw06jn7jmy"
 

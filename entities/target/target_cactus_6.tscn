@@ -7,18 +7,20 @@
 [node name="Target" type="Node2D" node_paths=PackedStringArray("visual_node")]
 script = ExtResource("1_yc7x2")
 hp = 20.0
-visual_height = 730.0
+visual_height = 1200.0
 visual_node = NodePath("Visuals")
 hit_scale = Vector2(0.95, 0.95)
 metadata/_custom_type_script = "uid://krkysii8fabu"
 
 [node name="Visuals" type="Node2D" parent="."]
+scale = Vector2(1.72988, 1.72988)
 
 [node name="Boo" type="Sprite2D" parent="Visuals"]
 position = Vector2(10, -325)
 texture = ExtResource("2_yc7x2")
 
 [node name="TargetAreas" type="Node2D" parent="."]
+scale = Vector2(1.72988, 1.72988)
 
 [node name="TargetArea" type="Area2D" parent="TargetAreas" node_paths=PackedStringArray("target")]
 script = ExtResource("3_yha4d")

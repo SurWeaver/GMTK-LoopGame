@@ -378,5 +378,6 @@ parameters/looping = true
 [connection signal="level_finished" from="Spawner" to="Control/HUD/TimerLabel" method="stop"]
 [connection signal="level_finished" from="Spawner" to="Control/HUD/PointLabel" method="disable"]
 [connection signal="started" from="Control/CountDownScreen" to="." method="_on_count_down_screen_started"]
+[connection signal="started" from="Control/CountDownScreen" to="Aim" method="enable"]
 [connection signal="started" from="Control/CountDownScreen" to="Control/HUD/TimerLabel" method="start"]
 [connection signal="started" from="Control/CountDownScreen" to="Control/HUD/PointLabel" method="enable"]
