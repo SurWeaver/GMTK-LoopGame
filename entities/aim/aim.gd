@@ -1,5 +1,7 @@
 extends Node2D
 
+signal earned_points(points: int)
+
 const BULLET_ANGLE: float = deg_to_rad(60)
 
 
@@ -9,6 +11,8 @@ enum State {
 }
 
 var barrel: BarrelInfo
+
+@export var damage_number_layer: CanvasItem
 
 @onready var bullets_transform_node: Node2D = %Bullets
 @onready var target_tracker: TargetTracker = $TargetTracker
@@ -100,7 +104,8 @@ func shoot() -> void:
 	var areas = target_tracker.get_overlapping_areas()
 	for damage_area in areas:
 		damage_target(damage_area, current_bullet)
-	pass
+
+	earned_points.emit(-5 if areas.is_empty() else 10)
 
 func damage_target(area: TargetArea, bullet: BulletInfo) -> void:
 	var multiplier = area.damage_multiplier
@@ -109,20 +114,20 @@ func damage_target(area: TargetArea, bullet: BulletInfo) -> void:
 	var base_damage = bullet.damage
 	var total_damage = base_damage
 
-#	Прибавление бонуса/штрафа за дистанцию
+##	Прибавление бонуса/штрафа за дистанцию
 	total_damage += base_damage * target.distance * bullet.distance_damage_multiplier
 
 	total_damage *= multiplier
 
-#	TODO: Цифры урона с иным цветом, если крит-зона
 	if multiplier > 1:
-		pass
+		earned_points.emit(int(10 * multiplier))
+
+	earned_points.emit(Math.factorial(target.distance))
 
 	target.take_damage(total_damage)
-	#if
 
-
-	#var total_damage = bullet.damage * multiplier * (1 + target.distance * bullet.distance_damage_multiplier)
-
-
-	pass
+	if damage_number_layer:
+		var damage_number: DamageNumber = Resources.TEMPLATES.damage_number.instantiate()
+		damage_number.set_number(total_damage, multiplier > 1)
+		damage_number.global_position = global_position
+		damage_number_layer.add_child(damage_number)
