@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://i05lg4rj444b"]
+
+[ext_resource type="Script" uid="uid://krkysii8fabu" path="res://entities/target/target.gd" id="1_hqjm2"]
+[ext_resource type="Texture2D" uid="uid://dxk4vt16wgauo" path="res://assets/enemies/big_one.png" id="2_eaph1"]
+[ext_resource type="Script" uid="uid://d0ilw06jn7jmy" path="res://entities/target/target_area.gd" id="4_ies5e"]
+
+[node name="Target" type="Node2D" node_paths=PackedStringArray("visual_node")]
+script = ExtResource("1_hqjm2")
+hp = 20.0
+visual_height = 700.0
+visual_node = NodePath("Visuals")
+hit_scale = Vector2(0.95, 0.95)
+metadata/_custom_type_script = "uid://krkysii8fabu"
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="BigOne" type="Sprite2D" parent="Visuals"]
+position = Vector2(-6, -313)
+texture = ExtResource("2_eaph1")
+
+[node name="TargetAreas" type="Node2D" parent="."]
+
+[node name="TargetArea" type="Area2D" parent="TargetAreas" node_paths=PackedStringArray("target")]
+script = ExtResource("4_ies5e")
+target = NodePath("../..")
+metadata/_custom_type_script = "uid://d0ilw06jn7jmy"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TargetAreas/TargetArea"]
+position = Vector2(289, 134)
+polygon = PackedVector2Array(-495, -567, -469, -725, -300, -778, -103, -713, -88, -572, -29, -436, -72, -177, -134, -110, -281, -68, -383, -77, -460, -118, -544, -295, -545, -470)

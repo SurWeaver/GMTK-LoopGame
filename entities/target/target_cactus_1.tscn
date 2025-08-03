@@ -7,7 +7,7 @@
 
 [node name="Target" type="Node2D" node_paths=PackedStringArray("visual_node")]
 script = ExtResource("1_mxrys")
-hp = 20.0
+hp = 30.0
 visual_height = 670.0
 visual_node = NodePath("Visuals")
 hit_scale = Vector2(0.95, 0.95)
