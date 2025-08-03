@@ -1,7 +1,6 @@
 class_name Spawner
 extends Node
 
-signal started
 signal level_finished
 
 @export var level_horde: LevelHorde
@@ -16,7 +15,6 @@ var index: int = 0
 func start() -> void:
 	current_wave = level_horde.waves[0]
 	spawn_wave(current_wave)
-	started.emit()
 
 func spawn_wave(wave: LevelWave) -> void:
 	for pack in wave.packs:
