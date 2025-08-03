@@ -1,11 +1,14 @@
 extends Node2D
 
+@export var spawner: Spawner
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	spawner.level_finished.connect(_on_level_finish)
 
+func _on_level_finish() -> void:
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
 	pass
+
+
+func _on_count_down_screen_started() -> void:
+	spawner.start()

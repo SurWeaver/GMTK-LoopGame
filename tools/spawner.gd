@@ -13,9 +13,6 @@ var current_enemy_count: int = 0
 
 var index: int = 0
 
-func _ready() -> void:
-	start()
-
 func start() -> void:
 	current_wave = level_horde.waves[0]
 	spawn_wave(current_wave)
