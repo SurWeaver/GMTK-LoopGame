@@ -14,5 +14,5 @@ recoil_duration = 0.4
 damage = 500.0
 distance_damage_multiplier = 0.0
 aim_radius = 1000.0
-bullet_switch_time = 5.0
+bullet_switch_time = 3.0
 metadata/_custom_type_script = "uid://by0iuv1jq87nv"
