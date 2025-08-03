@@ -52,8 +52,11 @@ func _on_load_barrel(barrel_index: int) -> void:
 	load_barrel(UserBarrels.barrels[barrel_index])
 
 
-func _on_save_to_barrel(_barrel_index: int) -> void:
-	pass # Replace with function body.
+func _on_save_to_barrel(barrel_index: int) -> void:
+	for bullet in bullet_manager.bullets:
+		if not bullet:
+			return
+	UserBarrels.barrels[barrel_index].bullets = bullet_manager.bullets.duplicate(true)
 
 
 func _on_bullet_manager_added(index: int, bullet: BulletInfo) -> void:

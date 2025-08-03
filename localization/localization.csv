@@ -15,3 +15,9 @@ sniper_desc,A bullet that deals massive damage to distant enemies (and your shou
 barrel,Barrel,Барабан
 load,Load,Загрузить
 save,Save,Сохранить
+record_time,Record time,Рекордное время
+record_points,Record points,Рекордные очки
+needed_time,Needed time,Необходимое время
+needed_points,Needed points,Необходимые очки
+rewards,Your rewards,Ваши награды
+return_to_menu,Return to menu,Вернуться в меню
