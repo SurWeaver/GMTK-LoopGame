@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bq35t5wmegbco"]
+[gd_scene load_steps=17 format=3 uid="uid://bq35t5wmegbco"]
 
 [ext_resource type="Script" uid="uid://p732avb48khk" path="res://scenes/templates/level.gd" id="1_7t2ac"]
 [ext_resource type="Texture2D" uid="uid://cxitbvywk8q0g" path="res://assets/level/sky.png" id="1_cys57"]
@@ -14,6 +14,8 @@
 [ext_resource type="Script" uid="uid://dem7gnyya316r" path="res://tools/spawner.gd" id="11_uxwct"]
 [ext_resource type="Resource" uid="uid://b50v0vjpvmpac" path="res://data/levels/test_level_horde.tres" id="13_m21d3"]
 [ext_resource type="PackedScene" uid="uid://bgd17rhvic6w0" path="res://ui/count_down_screen.tscn" id="14_m21d3"]
+[ext_resource type="Theme" uid="uid://c3lfeadrw1cv" path="res://assets/new_theme.tres" id="15_cuene"]
+[ext_resource type="Script" uid="uid://cyh5a0i8oxb2j" path="res://ui/timer_label.gd" id="16_jwn3x"]
 
 [node name="Level" type="Node2D" node_paths=PackedStringArray("spawner")]
 script = ExtResource("1_7t2ac")
@@ -328,4 +330,24 @@ mouse_filter = 2
 layout_mode = 1
 mouse_filter = 2
 
+[node name="HUD" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("15_cuene")
+
+[node name="TimerLabel" type="Label" parent="Control/HUD"]
+layout_mode = 0
+offset_left = 884.0
+offset_top = 1960.0
+offset_right = 1472.0
+offset_bottom = 2160.0
+theme_type_variation = &"HUD"
+text = "23 сек."
+horizontal_alignment = 2
+script = ExtResource("16_jwn3x")
+metadata/_custom_type_script = "uid://cyh5a0i8oxb2j"
+
+[connection signal="level_finished" from="Spawner" to="Control/HUD/TimerLabel" method="stop"]
 [connection signal="started" from="Control/CountDownScreen" to="." method="_on_count_down_screen_started"]
+[connection signal="started" from="Control/CountDownScreen" to="Control/HUD/TimerLabel" method="start"]
