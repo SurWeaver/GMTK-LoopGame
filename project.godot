@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Rearm Revolve Reshoot"
 config/description="3R: Rearm, Revolve, Reshoot"
+run/main_scene="uid://b0uu4bibnhi7p"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
