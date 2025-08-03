@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4d3amyg3du8c"]
+
+[ext_resource type="Theme" uid="uid://c3lfeadrw1cv" path="res://assets/new_theme.tres" id="1_kbsjb"]
+[ext_resource type="Script" uid="uid://4e3u0vnqsg8y" path="res://ui/barrel_save_load_buttons.gd" id="1_rvdfn"]
+
+[node name="BarrelSaveLoadButtons" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_kbsjb")
+theme_override_constants/separation = 24
+script = ExtResource("1_rvdfn")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"MenuLabel"
+text = "barrel"
+
+[node name="BarrelNumber" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"MenuLabel"
+text = "1"
+
+[node name="LoadButton" type="Button" parent="."]
+layout_mode = 2
+text = "load"
+
+[node name="Label" type="Label" parent="LoadButton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="SaveButton" type="Button" parent="."]
+layout_mode = 2
+text = "save"
+
+[connection signal="pressed" from="LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]

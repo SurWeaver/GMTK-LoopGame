@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0uu4bibnhi7p"]
+[gd_scene load_steps=14 format=3 uid="uid://b0uu4bibnhi7p"]
 
 [ext_resource type="Script" uid="uid://cmnwmrggh6kwk" path="res://scenes/level_hub.gd" id="1_bvpce"]
 [ext_resource type="Texture2D" uid="uid://drlob03ebp1d0" path="res://assets/hub/table.png" id="2_vrqs0"]
@@ -9,9 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://bmr0ht83wag6v" path="res://assets/hub/revolver_slice_3.png" id="7_7mk2q"]
 [ext_resource type="Texture2D" uid="uid://dfhlcpshbjby5" path="res://assets/hub/revolver_slice_4.png" id="8_2r2a3"]
 [ext_resource type="Texture2D" uid="uid://b5aupnr4nsccw" path="res://assets/hub/revolver_slice_5.png" id="9_2n28w"]
+[ext_resource type="Theme" uid="uid://c3lfeadrw1cv" path="res://assets/new_theme.tres" id="10_7nfut"]
 [ext_resource type="PackedScene" uid="uid://ytg3siy1r147" path="res://localization/language_button.tscn" id="10_tcpmd"]
+[ext_resource type="PackedScene" uid="uid://b4d3amyg3du8c" path="res://ui/barrel_save_load_buttons.tscn" id="12_tmmi1"]
+[ext_resource type="Script" uid="uid://qixw7k1xs3ds" path="res://bullet_manager.gd" id="13_7mk2q"]
 
-[node name="LevelHub" type="Control"]
+[node name="LevelHub" type="Control" node_paths=PackedStringArray("ui_bullets")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_bvpce")
+ui_bullets = [NodePath("Revolver/Bullet1"), NodePath("Revolver/Bullet2"), NodePath("Revolver/Bullet3"), NodePath("Revolver/Bullet4"), NodePath("Revolver/Bullet5"), NodePath("Revolver/Bullet6")]
 
 [node name="Table" type="TextureRect" parent="."]
 layout_mode = 0
@@ -129,6 +133,23 @@ offset_bottom = 2160.0
 mouse_filter = 2
 texture = ExtResource("9_2n28w")
 
+[node name="BulletDescription" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("10_7nfut")
+
+[node name="BulletDescriptionLabel" type="Label" parent="BulletDescription"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 145.0
+offset_top = 83.0
+offset_right = 2962.0
+offset_bottom = 539.0
+theme_type_variation = &"MenuLabel"
+text = "standard_desc"
+autowrap_mode = 3
+
 [node name="Buttons" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
@@ -187,12 +208,25 @@ offset_right = 3233.0
 offset_bottom = 416.0
 action_mode = 0
 
+[node name="ScrollContainer" type="ScrollContainer" parent="Buttons"]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 528.0
+offset_right = 1584.0
+offset_bottom = 1910.0
+
+[node name="BulletPacks" type="VBoxContainer" parent="Buttons/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="Button" type="Button" parent="Buttons"]
 layout_mode = 0
-offset_left = 254.0
-offset_top = 376.0
-offset_right = 833.0
-offset_bottom = 619.0
+offset_left = 1613.0
+offset_top = 561.0
+offset_right = 2192.0
+offset_bottom = 804.0
 text = "PRESS ME"
 
 [node name="LanguageButton" parent="Buttons" instance=ExtResource("10_tcpmd")]
@@ -202,22 +236,61 @@ offset_top = 1799.0
 offset_right = 646.0
 offset_bottom = 2199.0
 
+[node name="Builds" type="VBoxContainer" parent="Buttons"]
+layout_mode = 0
+offset_left = 1855.0
+offset_top = 1623.0
+offset_right = 2424.0
+offset_bottom = 2042.0
+theme = ExtResource("10_7nfut")
+
+[node name="BarrelSaveLoadButtons" parent="Buttons/Builds" instance=ExtResource("12_tmmi1")]
+layout_mode = 2
+visible_number = 1
+
+[node name="BarrelSaveLoadButtons2" parent="Buttons/Builds" instance=ExtResource("12_tmmi1")]
+layout_mode = 2
+visible_number = 2
+real_number = 1
+
+[node name="BarrelSaveLoadButtons3" parent="Buttons/Builds" instance=ExtResource("12_tmmi1")]
+layout_mode = 2
+visible_number = 3
+real_number = 2
+
+[node name="BulletManager" type="Node" parent="."]
+script = ExtResource("13_7mk2q")
+metadata/_custom_type_script = "uid://qixw7k1xs3ds"
+
 [connection signal="mouse_entered" from="Buttons/RevolverBulletButtons/TextureButton1" to="Revolver/Bullet1" method="animate_show"]
 [connection signal="mouse_exited" from="Buttons/RevolverBulletButtons/TextureButton1" to="Revolver/Bullet1" method="animate_hide"]
 [connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton1" to="Revolver/Bullet1" method="animate_remove"]
+[connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton1" to="BulletManager" method="remove" binds= [0]]
 [connection signal="mouse_entered" from="Buttons/RevolverBulletButtons/TextureButton2" to="Revolver/Bullet2" method="animate_show"]
 [connection signal="mouse_exited" from="Buttons/RevolverBulletButtons/TextureButton2" to="Revolver/Bullet2" method="animate_hide"]
 [connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton2" to="Revolver/Bullet2" method="animate_remove"]
+[connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton2" to="BulletManager" method="remove" binds= [1]]
 [connection signal="mouse_entered" from="Buttons/RevolverBulletButtons/TextureButton3" to="Revolver/Bullet3" method="animate_show"]
 [connection signal="mouse_exited" from="Buttons/RevolverBulletButtons/TextureButton3" to="Revolver/Bullet3" method="animate_hide"]
 [connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton3" to="Revolver/Bullet3" method="animate_remove"]
+[connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton3" to="BulletManager" method="remove" binds= [2]]
 [connection signal="mouse_entered" from="Buttons/RevolverBulletButtons/TextureButton4" to="Revolver/Bullet4" method="animate_show"]
 [connection signal="mouse_exited" from="Buttons/RevolverBulletButtons/TextureButton4" to="Revolver/Bullet4" method="animate_hide"]
 [connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton4" to="Revolver/Bullet4" method="animate_remove"]
+[connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton4" to="BulletManager" method="remove" binds= [3]]
 [connection signal="mouse_entered" from="Buttons/RevolverBulletButtons/TextureButton5" to="Revolver/Bullet5" method="animate_show"]
 [connection signal="mouse_exited" from="Buttons/RevolverBulletButtons/TextureButton5" to="Revolver/Bullet5" method="animate_hide"]
 [connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton5" to="Revolver/Bullet5" method="animate_remove"]
+[connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton5" to="BulletManager" method="remove" binds= [4]]
 [connection signal="mouse_entered" from="Buttons/RevolverBulletButtons/TextureButton6" to="Revolver/Bullet6" method="animate_show"]
 [connection signal="mouse_exited" from="Buttons/RevolverBulletButtons/TextureButton6" to="Revolver/Bullet6" method="animate_hide"]
 [connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton6" to="Revolver/Bullet6" method="animate_remove"]
+[connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton6" to="BulletManager" method="remove" binds= [5]]
 [connection signal="pressed" from="Buttons/Button" to="." method="_on_button_pressed"]
+[connection signal="load_barrel" from="Buttons/Builds/BarrelSaveLoadButtons" to="." method="_on_load_barrel"]
+[connection signal="save_to_barrel" from="Buttons/Builds/BarrelSaveLoadButtons" to="." method="_on_save_to_barrel"]
+[connection signal="load_barrel" from="Buttons/Builds/BarrelSaveLoadButtons2" to="." method="_on_load_barrel"]
+[connection signal="save_to_barrel" from="Buttons/Builds/BarrelSaveLoadButtons2" to="." method="_on_save_to_barrel"]
+[connection signal="load_barrel" from="Buttons/Builds/BarrelSaveLoadButtons3" to="." method="_on_load_barrel"]
+[connection signal="save_to_barrel" from="Buttons/Builds/BarrelSaveLoadButtons3" to="." method="_on_save_to_barrel"]
+[connection signal="added" from="BulletManager" to="." method="_on_bullet_manager_added"]

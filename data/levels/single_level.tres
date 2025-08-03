@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=3 format=3 uid="uid://bgi05ame0fk7b"]
+
+[ext_resource type="Resource" uid="uid://b50v0vjpvmpac" path="res://data/levels/test_level_horde.tres" id="1_3sdbc"]
+[ext_resource type="Script" uid="uid://0pflx3jlv045" path="res://models/level/level_info.gd" id="1_qsi86"]
+
+[resource]
+script = ExtResource("1_qsi86")
+level_horde = ExtResource("1_3sdbc")
+description = "level_description"
+unlocked = false
+time_limit = 0.0
+time_bullet_count = 1
+point_limit = 0.0
+point_limit_count = 1
+metadata/_custom_type_script = "uid://0pflx3jlv045"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BulletInfo" load_steps=3 format=3 uid="uid://d3yr8fj52up38"]
+
+[ext_resource type="Script" uid="uid://by0iuv1jq87nv" path="res://models/bullet_info.gd" id="1_nryvf"]
+[ext_resource type="Texture2D" uid="uid://ctln3pqhd8eo5" path="res://assets/ui/aim/bullet.png" id="2_mmfyc"]
+
+[resource]
+script = ExtResource("1_nryvf")
+name = "sniper"
+texture = ExtResource("2_mmfyc")
+color = Color(0, 0, 0, 1)
+recoil_angle = 5.0
+recoil_speed = 10.0
+recoil_duration = 0.2
+damage = 3.0
+distance_damage_multiplier = 10.0
+aim_radius = 5.0
+bullet_switch_time = 0.4
+metadata/_custom_type_script = "uid://by0iuv1jq87nv"

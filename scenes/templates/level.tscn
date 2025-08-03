@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bq35t5wmegbco"]
+[gd_scene load_steps=18 format=3 uid="uid://bq35t5wmegbco"]
 
 [ext_resource type="Script" uid="uid://p732avb48khk" path="res://scenes/templates/level.gd" id="1_7t2ac"]
 [ext_resource type="Texture2D" uid="uid://cxitbvywk8q0g" path="res://assets/level/sky.png" id="1_cys57"]
@@ -16,10 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://bgd17rhvic6w0" path="res://ui/count_down_screen.tscn" id="14_m21d3"]
 [ext_resource type="Theme" uid="uid://c3lfeadrw1cv" path="res://assets/new_theme.tres" id="15_cuene"]
 [ext_resource type="Script" uid="uid://cyh5a0i8oxb2j" path="res://ui/timer_label.gd" id="16_jwn3x"]
+[ext_resource type="Script" uid="uid://wgvphdwlbo65" path="res://ui/point_label.gd" id="17_jwn3x"]
 
-[node name="Level" type="Node2D" node_paths=PackedStringArray("spawner")]
+[node name="Level" type="Node2D"]
 script = ExtResource("1_7t2ac")
-spawner = NodePath("Spawner")
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -337,6 +337,7 @@ offset_bottom = 40.0
 theme = ExtResource("15_cuene")
 
 [node name="TimerLabel" type="Label" parent="Control/HUD"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 884.0
 offset_top = 1960.0
@@ -348,6 +349,22 @@ horizontal_alignment = 2
 script = ExtResource("16_jwn3x")
 metadata/_custom_type_script = "uid://cyh5a0i8oxb2j"
 
+[node name="PointLabel" type="Label" parent="Control/HUD"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 2106.0
+offset_top = 1960.0
+offset_right = 2750.0
+offset_bottom = 2154.0
+theme_type_variation = &"HUD"
+text = "10 очк."
+horizontal_alignment = 2
+script = ExtResource("17_jwn3x")
+metadata/_custom_type_script = "uid://wgvphdwlbo65"
+
+[connection signal="earned_points" from="Aim" to="Control/HUD/PointLabel" method="add_points"]
 [connection signal="level_finished" from="Spawner" to="Control/HUD/TimerLabel" method="stop"]
+[connection signal="level_finished" from="Spawner" to="Control/HUD/PointLabel" method="disable"]
 [connection signal="started" from="Control/CountDownScreen" to="." method="_on_count_down_screen_started"]
 [connection signal="started" from="Control/CountDownScreen" to="Control/HUD/TimerLabel" method="start"]
+[connection signal="started" from="Control/CountDownScreen" to="Control/HUD/PointLabel" method="enable"]

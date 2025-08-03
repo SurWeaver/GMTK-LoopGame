@@ -1,9 +1,37 @@
-[gd_resource type="Resource" script_class="LevelCollection" load_steps=3 format=3 uid="uid://c6vkecn3l24g2"]
+[gd_resource type="Resource" script_class="LevelCollection" load_steps=10 format=3 uid="uid://c6vkecn3l24g2"]
 
 [ext_resource type="Script" uid="uid://0pflx3jlv045" path="res://models/level/level_info.gd" id="1_tdhyf"]
 [ext_resource type="Script" uid="uid://cimlielktjhf6" path="res://models/level/level_collection.gd" id="2_3vo4r"]
+[ext_resource type="Resource" uid="uid://cys15r07bxrny" path="res://data/bullets/anger_bullet.tres" id="2_g26yg"]
+[ext_resource type="Resource" uid="uid://b50v0vjpvmpac" path="res://data/levels/test_level_horde.tres" id="2_sup8v"]
+[ext_resource type="Script" uid="uid://dcx5bw1ph8q1" path="res://models/bullet_pack.gd" id="3_sup8v"]
+[ext_resource type="Resource" uid="uid://d3yr8fj52up38" path="res://data/bullets/sniper_bullet.tres" id="5_xrvue"]
+
+[sub_resource type="Resource" id="Resource_log8o"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("2_g26yg")
+count = 1
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_2me37"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("5_xrvue")
+count = 2
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_tdhyf"]
+script = ExtResource("1_tdhyf")
+level_index = 0
+level_horde = ExtResource("2_sup8v")
+description = ""
+unlocked = false
+time_limit = 30.0
+time_limit_reward = SubResource("Resource_2me37")
+point_limit = 400
+point_limit_reward = SubResource("Resource_log8o")
+metadata/_custom_type_script = "uid://0pflx3jlv045"
 
 [resource]
 script = ExtResource("2_3vo4r")
-levels = Array[ExtResource("1_tdhyf")]([])
+levels = Array[ExtResource("1_tdhyf")]([SubResource("Resource_tdhyf")])
 metadata/_custom_type_script = "uid://cimlielktjhf6"

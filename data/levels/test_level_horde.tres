@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="LevelHorde" load_steps=14 format=3 uid="uid://b50v0vjpvmpac"]
+
+[ext_resource type="Script" uid="uid://cx37waevi11ka" path="res://models/level/level_horde.gd" id="1_jxhvo"]
+[ext_resource type="Script" uid="uid://b16ensll14eox" path="res://models/level/level_wave.gd" id="2_0kiea"]
+[ext_resource type="PackedScene" uid="uid://c71aa8y2w77y7" path="res://entities/target/target_cactus_1.tscn" id="2_h2gnq"]
+[ext_resource type="PackedScene" uid="uid://i05lg4rj444b" path="res://entities/target/target_cactus_2.tscn" id="3_qulda"]
+[ext_resource type="Script" uid="uid://tg65l0f0v18" path="res://models/level/target_pack.gd" id="4_qulda"]
+
+[sub_resource type="Resource" id="Resource_85aps"]
+script = ExtResource("4_qulda")
+enemy_index = 0
+overridden_hp = 0.0
+amount = 2
+distance = 3
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_s2afk"]
+script = ExtResource("4_qulda")
+enemy_index = 0
+overridden_hp = 0.0
+amount = 1
+distance = 1
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_ihbn6"]
+script = ExtResource("4_qulda")
+enemy_index = 0
+overridden_hp = 0.0
+amount = 3
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_x3bva"]
+script = ExtResource("2_0kiea")
+packs = Array[ExtResource("4_qulda")]([SubResource("Resource_85aps"), SubResource("Resource_s2afk"), SubResource("Resource_ihbn6")])
+delay_seconds_before_next = 1.0
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_h2gnq"]
+script = ExtResource("4_qulda")
+enemy_index = 0
+overridden_hp = 200.0
+amount = 1
+distance = 1
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_sffb1"]
+script = ExtResource("4_qulda")
+enemy_index = 1
+overridden_hp = 0.0
+amount = 6
+distance = 4
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_x4f78"]
+script = ExtResource("4_qulda")
+enemy_index = 1
+overridden_hp = 0.0
+amount = 2
+distance = 1
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_qulda"]
+script = ExtResource("2_0kiea")
+packs = Array[ExtResource("4_qulda")]([SubResource("Resource_h2gnq"), SubResource("Resource_sffb1"), SubResource("Resource_x4f78")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[resource]
+script = ExtResource("1_jxhvo")
+targets = Dictionary[int, PackedScene]({
+0: ExtResource("2_h2gnq"),
+1: ExtResource("3_qulda")
+})
+waves = Array[ExtResource("2_0kiea")]([SubResource("Resource_x3bva"), SubResource("Resource_qulda")])
+metadata/_custom_type_script = "uid://cx37waevi11ka"
