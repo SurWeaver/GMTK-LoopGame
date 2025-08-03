@@ -105,11 +105,14 @@ func shoot() -> void:
 	for damage_area in areas:
 		damage_target(damage_area, current_bullet)
 
-	earned_points.emit(-5 if areas.is_empty() else 10)
+	earned_points.emit(-20 if areas.is_empty() else 10)
 
 func damage_target(area: TargetArea, bullet: BulletInfo) -> void:
 	var multiplier = area.damage_multiplier
 	var target = area.target
+
+	if target.hp <= 0:
+		return
 
 	var base_damage = bullet.damage
 	var total_damage = base_damage
