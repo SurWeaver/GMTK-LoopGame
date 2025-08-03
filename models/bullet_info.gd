@@ -17,3 +17,5 @@ extends Resource
 @export var distance_damage_multiplier: float = 0
 
 @export var aim_radius: float = 5
+
+@export var bullet_switch_time: float = 0.2

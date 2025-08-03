@@ -1,7 +1,6 @@
 extends Node2D
 
 const BULLET_ANGLE: float = deg_to_rad(60)
-const BULLET_SWITCH_TIME: float = 0.2
 
 
 enum State {
@@ -52,17 +51,15 @@ func initialize_look(bullets: BarrelEnumerator) -> void:
 
 
 func _process(_delta: float) -> void:
-	match current_state:
-		State.AIM:
-			aiming()
-
-func aiming() -> void:
 	position = viewport.get_mouse_position()
+	if current_state == State.AIM:
+		process_shoot()
 
+func process_shoot() -> void:
 	if Input.is_action_just_pressed("shoot"):
+		current_state = State.RECOIL
 		animate_recoil()
 		animate_bullet_switch()
-
 		shoot()
 
 		bullets.next()
@@ -77,8 +74,6 @@ func animate_recoil() -> void:
 
 	tween.tween_method(recoil, current_bullet.recoil_speed, 0, current_bullet.recoil_duration)
 
-	tween.tween_callback(switch_to_aim)
-
 func recoil(amount: float) -> void:
 	var current_position: Vector2 = viewport.get_mouse_position()
 	var delta = last_recoil_direction * amount
@@ -92,8 +87,11 @@ func animate_bullet_switch() -> void:
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 	var new_angle = last_correct_barrel_angle - BULLET_ANGLE
-	tween.tween_property(bullets_transform_node, "rotation", new_angle, BULLET_SWITCH_TIME)\
+	var bullet_switch_time = bullets.current().bullet_switch_time
+	tween.tween_property(bullets_transform_node, "rotation", new_angle, bullet_switch_time)\
 		.from(last_correct_barrel_angle)
+	tween.tween_callback(switch_to_aim)
+
 	last_correct_barrel_angle = new_angle
 
 
