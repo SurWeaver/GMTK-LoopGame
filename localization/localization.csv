@@ -4,4 +4,14 @@ ready,READY?,НА СТАРТ
 set,SET,ВНИМАНИЕ
 go,GO!,МАРШ!
 seconds_suffix,sec.,сек.
+points_suffix,pts,очк.
 locale,EN,РУ
+standard_name,Usual,Обычная
+standard_desc,That's a usual bullet!,Это обычная пуля!
+anger_name,Anger,Злая
+anger_desc,"Nasty bullet with a high recoil, damage and bullet switch time","Вредная пуля с высокой отдачей, уроном и сменой патрона"
+sniper_name,Sniper,Снайпер
+sniper_desc,A bullet that deals massive damage to distant enemies (and your shoulder),"Пуля, наносящая огромный урон отдалённым врагам (и вашему плечу)"
+barrel,Barrel,Барабан
+load,Load,Загрузить
+save,Save,Сохранить
