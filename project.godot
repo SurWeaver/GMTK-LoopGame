@@ -21,6 +21,7 @@ Resources="*res://autoload/resources.gd"
 UserBarrels="*res://autoload/user_barrels.gd"
 Random="*res://autoload/random.gd"
 Levels="*res://autoload/levels.gd"
+TransitionScreen="*res://autoload/scenes/transition_screen.tscn"
 
 [display]
 

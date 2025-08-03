@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://qb7m8pothel5"]
+
+[ext_resource type="Script" uid="uid://c7wegx3fp0sa0" path="res://autoload/scenes/transition_screen.gd" id="1_3c2as"]
+
+[node name="TransitionScreen" type="Node2D"]
+z_index = 4000
+script = ExtResource("1_3c2as")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-100, -100, 4000, -100, 4000, 2300, -100, 2300)
