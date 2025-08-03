@@ -7,6 +7,10 @@ extends Node2D
 @onready var aim: Node2D = $Aim
 
 
+func _ready() -> void:
+	var horde = Levels.levels.levels[Levels.current_level_index].level_horde
+	spawner.level_horde = horde
+
 func _on_level_finish() -> void:
 	var current_record = create_record()
 	var record = Levels.get_current_level_record()

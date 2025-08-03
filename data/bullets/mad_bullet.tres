@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BulletInfo" load_steps=3 format=3 uid="uid://dx76ig3wt33wj"]
+
+[ext_resource type="Script" uid="uid://by0iuv1jq87nv" path="res://models/bullet_info.gd" id="1_3fmsi"]
+[ext_resource type="Texture2D" uid="uid://ctln3pqhd8eo5" path="res://assets/ui/aim/bullet.png" id="2_2ntbh"]
+
+[resource]
+script = ExtResource("1_3fmsi")
+name = "mad"
+texture = ExtResource("2_2ntbh")
+color = Color(1.20327e-06, 0.418912, 0.145672, 1)
+recoil_angle = 180.0
+recoil_speed = 20.0
+recoil_duration = 0.1
+damage = 10.0
+distance_damage_multiplier = 0.0
+aim_radius = 10.0
+bullet_switch_time = 0.1
+metadata/_custom_type_script = "uid://by0iuv1jq87nv"

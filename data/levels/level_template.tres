@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=11 format=3 uid="uid://n0lnp7mvpde3"]
+
+[ext_resource type="Script" uid="uid://cx37waevi11ka" path="res://models/level/level_horde.gd" id="1_8gxef"]
+[ext_resource type="Script" uid="uid://0pflx3jlv045" path="res://models/level/level_info.gd" id="1_rh038"]
+[ext_resource type="PackedScene" uid="uid://c71aa8y2w77y7" path="res://entities/target/target_cactus_1.tscn" id="2_dgfkr"]
+[ext_resource type="PackedScene" uid="uid://i05lg4rj444b" path="res://entities/target/target_cactus_2.tscn" id="3_2s34o"]
+[ext_resource type="PackedScene" uid="uid://bwpib7qy03631" path="res://entities/target/target_cactus_3.tscn" id="4_dl0hk"]
+[ext_resource type="PackedScene" uid="uid://dnw1seb7qwhac" path="res://entities/target/target_cactus_4.tscn" id="5_xnqhq"]
+[ext_resource type="PackedScene" uid="uid://cnt7wtb0e5mkt" path="res://entities/target/target_cactus_5.tscn" id="6_yk3tk"]
+[ext_resource type="PackedScene" uid="uid://cq153b7fukj7m" path="res://entities/target/target_cactus_6.tscn" id="7_nce4b"]
+[ext_resource type="Script" uid="uid://b16ensll14eox" path="res://models/level/level_wave.gd" id="8_88e01"]
+
+[sub_resource type="Resource" id="Resource_wh133"]
+script = ExtResource("1_8gxef")
+targets = Dictionary[int, PackedScene]({
+0: ExtResource("2_dgfkr"),
+1: ExtResource("3_2s34o"),
+2: ExtResource("4_dl0hk"),
+3: ExtResource("5_xnqhq"),
+4: ExtResource("6_yk3tk"),
+5: ExtResource("7_nce4b")
+})
+waves = Array[ExtResource("8_88e01")]([])
+metadata/_custom_type_script = "uid://cx37waevi11ka"
+
+[resource]
+script = ExtResource("1_rh038")
+level_index = 0
+level_horde = SubResource("Resource_wh133")
+description = ""
+unlocked = false
+time_limit = 0.0
+point_limit = 0
+metadata/_custom_type_script = "uid://0pflx3jlv045"

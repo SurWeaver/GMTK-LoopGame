@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BulletInfo" load_steps=3 format=3 uid="uid://b5bvr5hjauovw"]
+
+[ext_resource type="Script" uid="uid://by0iuv1jq87nv" path="res://models/bullet_info.gd" id="1_8u4r5"]
+[ext_resource type="Texture2D" uid="uid://ctln3pqhd8eo5" path="res://assets/ui/aim/bullet.png" id="2_5kkul"]
+
+[resource]
+script = ExtResource("1_8u4r5")
+name = "nuclear"
+texture = ExtResource("2_5kkul")
+color = Color(0.192004, 0.349777, 0.383776, 1)
+recoil_angle = 5.0
+recoil_speed = 50.0
+recoil_duration = 0.4
+damage = 500.0
+distance_damage_multiplier = 0.0
+aim_radius = 1000.0
+bullet_switch_time = 5.0
+metadata/_custom_type_script = "uid://by0iuv1jq87nv"

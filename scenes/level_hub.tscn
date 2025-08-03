@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b0uu4bibnhi7p"]
+[gd_scene load_steps=15 format=3 uid="uid://b0uu4bibnhi7p"]
 
 [ext_resource type="Script" uid="uid://cmnwmrggh6kwk" path="res://scenes/level_hub.gd" id="1_bvpce"]
 [ext_resource type="Texture2D" uid="uid://drlob03ebp1d0" path="res://assets/hub/table.png" id="2_vrqs0"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b5aupnr4nsccw" path="res://assets/hub/revolver_slice_5.png" id="9_2n28w"]
 [ext_resource type="Theme" uid="uid://c3lfeadrw1cv" path="res://assets/new_theme.tres" id="10_7nfut"]
 [ext_resource type="PackedScene" uid="uid://ytg3siy1r147" path="res://localization/language_button.tscn" id="10_tcpmd"]
+[ext_resource type="PackedScene" uid="uid://c2w405xkg8en3" path="res://ui/opened_level_list.tscn" id="11_2r2a3"]
 [ext_resource type="PackedScene" uid="uid://b4d3amyg3du8c" path="res://ui/barrel_save_load_buttons.tscn" id="12_tmmi1"]
 [ext_resource type="Script" uid="uid://qixw7k1xs3ds" path="res://bullet_manager.gd" id="13_7mk2q"]
 
@@ -222,12 +223,20 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="Buttons"]
+visible = false
 layout_mode = 0
 offset_left = 1613.0
 offset_top = 561.0
 offset_right = 2192.0
 offset_bottom = 804.0
 text = "PRESS ME"
+
+[node name="OpenedLevelList" parent="Buttons" instance=ExtResource("11_2r2a3")]
+layout_mode = 0
+offset_left = 1846.0
+offset_top = 594.0
+offset_right = 2427.0
+offset_bottom = 1455.0
 
 [node name="LanguageButton" parent="Buttons" instance=ExtResource("10_tcpmd")]
 layout_mode = 0
@@ -287,6 +296,7 @@ metadata/_custom_type_script = "uid://qixw7k1xs3ds"
 [connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton6" to="Revolver/Bullet6" method="animate_remove"]
 [connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton6" to="BulletManager" method="remove" binds= [5]]
 [connection signal="pressed" from="Buttons/Button" to="." method="_on_button_pressed"]
+[connection signal="requested_level" from="Buttons/OpenedLevelList" to="." method="_on_opened_level_list_requested_level"]
 [connection signal="load_barrel" from="Buttons/Builds/BarrelSaveLoadButtons" to="." method="_on_load_barrel"]
 [connection signal="save_to_barrel" from="Buttons/Builds/BarrelSaveLoadButtons" to="." method="_on_save_to_barrel"]
 [connection signal="load_barrel" from="Buttons/Builds/BarrelSaveLoadButtons2" to="." method="_on_load_barrel"]

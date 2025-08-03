@@ -1,37 +1,787 @@
-[gd_resource type="Resource" script_class="LevelCollection" load_steps=10 format=3 uid="uid://c6vkecn3l24g2"]
+[gd_resource type="Resource" script_class="LevelCollection" load_steps=115 format=3 uid="uid://c6vkecn3l24g2"]
 
 [ext_resource type="Script" uid="uid://0pflx3jlv045" path="res://models/level/level_info.gd" id="1_tdhyf"]
 [ext_resource type="Script" uid="uid://cimlielktjhf6" path="res://models/level/level_collection.gd" id="2_3vo4r"]
 [ext_resource type="Resource" uid="uid://cys15r07bxrny" path="res://data/bullets/anger_bullet.tres" id="2_g26yg"]
-[ext_resource type="Resource" uid="uid://b50v0vjpvmpac" path="res://data/levels/test_level_horde.tres" id="2_sup8v"]
+[ext_resource type="Script" uid="uid://cx37waevi11ka" path="res://models/level/level_horde.gd" id="2_l1c6h"]
+[ext_resource type="PackedScene" uid="uid://c71aa8y2w77y7" path="res://entities/target/target_cactus_1.tscn" id="3_4kwd5"]
 [ext_resource type="Script" uid="uid://dcx5bw1ph8q1" path="res://models/bullet_pack.gd" id="3_sup8v"]
+[ext_resource type="PackedScene" uid="uid://i05lg4rj444b" path="res://entities/target/target_cactus_2.tscn" id="4_t3xb8"]
+[ext_resource type="PackedScene" uid="uid://bwpib7qy03631" path="res://entities/target/target_cactus_3.tscn" id="5_6ncib"]
 [ext_resource type="Resource" uid="uid://d3yr8fj52up38" path="res://data/bullets/sniper_bullet.tres" id="5_xrvue"]
+[ext_resource type="PackedScene" uid="uid://dnw1seb7qwhac" path="res://entities/target/target_cactus_4.tscn" id="6_1e56m"]
+[ext_resource type="PackedScene" uid="uid://cnt7wtb0e5mkt" path="res://entities/target/target_cactus_5.tscn" id="7_878rs"]
+[ext_resource type="PackedScene" uid="uid://cq153b7fukj7m" path="res://entities/target/target_cactus_6.tscn" id="8_epii3"]
+[ext_resource type="Script" uid="uid://b16ensll14eox" path="res://models/level/level_wave.gd" id="9_ku0rg"]
+[ext_resource type="Script" uid="uid://tg65l0f0v18" path="res://models/level/target_pack.gd" id="10_0flij"]
+[ext_resource type="Resource" uid="uid://fv2lcluglw11" path="res://data/bullets/shotgun_bullet.tres" id="14_4kwd5"]
+[ext_resource type="Resource" uid="uid://dx76ig3wt33wj" path="res://data/bullets/mad_bullet.tres" id="15_t3xb8"]
+[ext_resource type="Resource" uid="uid://dsfn6ph02y7fo" path="res://data/bullets/cool_bullet.tres" id="16_6ncib"]
+[ext_resource type="Resource" uid="uid://b5bvr5hjauovw" path="res://data/bullets/nuclear_bullet.tres" id="17_1e56m"]
 
-[sub_resource type="Resource" id="Resource_log8o"]
-script = ExtResource("3_sup8v")
-bullet = ExtResource("2_g26yg")
-count = 1
-metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+[sub_resource type="Resource" id="Resource_xc58t"]
+script = ExtResource("10_0flij")
+enemy_index = 0
+overridden_hp = 0.0
+amount = 2
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
 
-[sub_resource type="Resource" id="Resource_2me37"]
+[sub_resource type="Resource" id="Resource_l1c6h"]
+script = ExtResource("10_0flij")
+enemy_index = 0
+overridden_hp = 0.0
+amount = 2
+distance = 4
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_4kwd5"]
+script = ExtResource("10_0flij")
+enemy_index = 3
+overridden_hp = 0.0
+amount = 2
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_t3xb8"]
+script = ExtResource("10_0flij")
+enemy_index = 3
+overridden_hp = 0.0
+amount = 2
+distance = 4
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_0ny6u"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_xc58t"), SubResource("Resource_l1c6h"), SubResource("Resource_4kwd5"), SubResource("Resource_t3xb8")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_cj7p8"]
+script = ExtResource("2_l1c6h")
+targets = Dictionary[int, PackedScene]({
+0: ExtResource("3_4kwd5"),
+1: ExtResource("4_t3xb8"),
+2: ExtResource("5_6ncib"),
+3: ExtResource("6_1e56m"),
+4: ExtResource("7_878rs"),
+5: ExtResource("8_epii3")
+})
+waves = Array[ExtResource("9_ku0rg")]([SubResource("Resource_0ny6u"), SubResource("Resource_0ny6u")])
+metadata/_custom_type_script = "uid://cx37waevi11ka"
+
+[sub_resource type="Resource" id="Resource_6ncib"]
 script = ExtResource("3_sup8v")
 bullet = ExtResource("5_xrvue")
 count = 2
 metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
 
-[sub_resource type="Resource" id="Resource_tdhyf"]
+[sub_resource type="Resource" id="Resource_1e56m"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("2_g26yg")
+count = 1
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_cnvyw"]
 script = ExtResource("1_tdhyf")
 level_index = 0
-level_horde = ExtResource("2_sup8v")
-description = ""
-unlocked = false
+level_horde = SubResource("Resource_cj7p8")
+description = "beginning"
+time_limit = 27.0
+time_limit_reward = SubResource("Resource_1e56m")
+point_limit = 900
+point_limit_reward = SubResource("Resource_6ncib")
+metadata/_custom_type_script = "uid://0pflx3jlv045"
+
+[sub_resource type="Resource" id="Resource_878rs"]
+script = ExtResource("10_0flij")
+enemy_index = 1
+overridden_hp = 0.0
+amount = 3
+distance = 3
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_epii3"]
+script = ExtResource("10_0flij")
+enemy_index = 2
+overridden_hp = 0.0
+amount = 4
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_ku0rg"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_878rs"), SubResource("Resource_epii3")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_0flij"]
+script = ExtResource("10_0flij")
+enemy_index = 2
+overridden_hp = 0.0
+amount = 3
+distance = 3
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_03d5n"]
+script = ExtResource("10_0flij")
+enemy_index = 1
+overridden_hp = 0.0
+amount = 4
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_mm2nn"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_0flij"), SubResource("Resource_03d5n")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_5nsj8"]
+script = ExtResource("2_l1c6h")
+targets = Dictionary[int, PackedScene]({
+0: ExtResource("3_4kwd5"),
+1: ExtResource("4_t3xb8"),
+2: ExtResource("5_6ncib"),
+3: ExtResource("6_1e56m"),
+4: ExtResource("7_878rs"),
+5: ExtResource("8_epii3")
+})
+waves = Array[ExtResource("9_ku0rg")]([SubResource("Resource_ku0rg"), SubResource("Resource_mm2nn")])
+metadata/_custom_type_script = "uid://cx37waevi11ka"
+
+[sub_resource type="Resource" id="Resource_m0kv1"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("2_g26yg")
+count = 1
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_bgo0w"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("14_4kwd5")
+count = 1
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_ddgrx"]
+script = ExtResource("1_tdhyf")
+level_index = 1
+level_horde = SubResource("Resource_5nsj8")
+description = "circle_ones"
 time_limit = 30.0
-time_limit_reward = SubResource("Resource_2me37")
-point_limit = 400
-point_limit_reward = SubResource("Resource_log8o")
+time_limit_reward = SubResource("Resource_bgo0w")
+point_limit = 700
+point_limit_reward = SubResource("Resource_m0kv1")
+metadata/_custom_type_script = "uid://0pflx3jlv045"
+
+[sub_resource type="Resource" id="Resource_b7dl3"]
+script = ExtResource("10_0flij")
+enemy_index = 1
+overridden_hp = 40.0
+amount = 3
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_dpjcm"]
+script = ExtResource("10_0flij")
+enemy_index = 3
+overridden_hp = 40.0
+amount = 2
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_im70x"]
+script = ExtResource("10_0flij")
+enemy_index = 3
+overridden_hp = 40.0
+amount = 3
+distance = 3
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_h6fbg"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_b7dl3"), SubResource("Resource_dpjcm"), SubResource("Resource_im70x")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_dkwkg"]
+script = ExtResource("10_0flij")
+enemy_index = 1
+overridden_hp = 60.0
+amount = 2
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_mqprr"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_dkwkg")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_6q3ih"]
+script = ExtResource("2_l1c6h")
+targets = Dictionary[int, PackedScene]({
+0: ExtResource("3_4kwd5"),
+1: ExtResource("4_t3xb8"),
+2: ExtResource("5_6ncib"),
+3: ExtResource("6_1e56m"),
+4: ExtResource("7_878rs"),
+5: ExtResource("8_epii3")
+})
+waves = Array[ExtResource("9_ku0rg")]([SubResource("Resource_h6fbg"), SubResource("Resource_mqprr")])
+metadata/_custom_type_script = "uid://cx37waevi11ka"
+
+[sub_resource type="Resource" id="Resource_xq0o4"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("5_xrvue")
+count = 1
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_l4tyj"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("5_xrvue")
+count = 1
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_47gfu"]
+script = ExtResource("1_tdhyf")
+level_index = 2
+level_horde = SubResource("Resource_6q3ih")
+description = "long_ones"
+time_limit = 20.0
+time_limit_reward = SubResource("Resource_l4tyj")
+point_limit = 550
+point_limit_reward = SubResource("Resource_xq0o4")
+metadata/_custom_type_script = "uid://0pflx3jlv045"
+
+[sub_resource type="Resource" id="Resource_33yu3"]
+script = ExtResource("10_0flij")
+enemy_index = 0
+overridden_hp = 40.0
+amount = 3
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_gy020"]
+script = ExtResource("10_0flij")
+enemy_index = 2
+overridden_hp = 30.0
+amount = 4
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_m6dyh"]
+script = ExtResource("10_0flij")
+enemy_index = 2
+overridden_hp = 30.0
+amount = 4
+distance = 3
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_oivbb"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_33yu3"), SubResource("Resource_gy020"), SubResource("Resource_m6dyh")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_4d3v1"]
+script = ExtResource("10_0flij")
+enemy_index = 0
+overridden_hp = 40.0
+amount = 2
+distance = 3
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_fpp0i"]
+script = ExtResource("10_0flij")
+enemy_index = 2
+overridden_hp = 30.0
+amount = 2
+distance = 3
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_gf7q6"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_4d3v1"), SubResource("Resource_fpp0i")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_xvpm1"]
+script = ExtResource("10_0flij")
+enemy_index = 0
+overridden_hp = 200.0
+amount = 1
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_o100q"]
+script = ExtResource("10_0flij")
+enemy_index = 2
+overridden_hp = 200.0
+amount = 1
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_2sy3m"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_xvpm1"), SubResource("Resource_o100q")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_663l4"]
+script = ExtResource("2_l1c6h")
+targets = Dictionary[int, PackedScene]({
+0: ExtResource("3_4kwd5"),
+1: ExtResource("4_t3xb8"),
+2: ExtResource("5_6ncib"),
+3: ExtResource("6_1e56m"),
+4: ExtResource("7_878rs"),
+5: ExtResource("8_epii3")
+})
+waves = Array[ExtResource("9_ku0rg")]([SubResource("Resource_oivbb"), SubResource("Resource_gf7q6"), SubResource("Resource_2sy3m")])
+metadata/_custom_type_script = "uid://cx37waevi11ka"
+
+[sub_resource type="Resource" id="Resource_eko0p"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("2_g26yg")
+count = 2
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_km8qt"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("14_4kwd5")
+count = 3
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_kofmd"]
+script = ExtResource("1_tdhyf")
+level_index = 3
+level_horde = SubResource("Resource_663l4")
+description = "two_and_one_problem"
+time_limit = 30.0
+time_limit_reward = SubResource("Resource_km8qt")
+point_limit = 750
+point_limit_reward = SubResource("Resource_eko0p")
+metadata/_custom_type_script = "uid://0pflx3jlv045"
+
+[sub_resource type="Resource" id="Resource_cygvc"]
+script = ExtResource("10_0flij")
+enemy_index = 0
+overridden_hp = 40.0
+amount = 2
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_oasmn"]
+script = ExtResource("10_0flij")
+enemy_index = 1
+overridden_hp = 40.0
+amount = 1
+distance = 3
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_6nf56"]
+script = ExtResource("10_0flij")
+enemy_index = 2
+overridden_hp = 40.0
+amount = 1
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_xav4n"]
+script = ExtResource("10_0flij")
+enemy_index = 0
+overridden_hp = 40.0
+amount = 3
+distance = 4
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_w6331"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_cygvc"), SubResource("Resource_oasmn"), SubResource("Resource_6nf56"), SubResource("Resource_xav4n")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_n4nw3"]
+script = ExtResource("10_0flij")
+enemy_index = 1
+overridden_hp = 50.0
+amount = 1
+distance = 3
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_6cql3"]
+script = ExtResource("10_0flij")
+enemy_index = 2
+overridden_hp = 50.0
+amount = 2
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_d3h7f"]
+script = ExtResource("10_0flij")
+enemy_index = 3
+overridden_hp = 50.0
+amount = 2
+distance = 4
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_nir7j"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_n4nw3"), SubResource("Resource_6cql3"), SubResource("Resource_d3h7f")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_qn60u"]
+script = ExtResource("2_l1c6h")
+targets = Dictionary[int, PackedScene]({
+0: ExtResource("3_4kwd5"),
+1: ExtResource("4_t3xb8"),
+2: ExtResource("5_6ncib"),
+3: ExtResource("6_1e56m"),
+4: ExtResource("7_878rs"),
+5: ExtResource("8_epii3")
+})
+waves = Array[ExtResource("9_ku0rg")]([SubResource("Resource_w6331"), SubResource("Resource_nir7j")])
+metadata/_custom_type_script = "uid://cx37waevi11ka"
+
+[sub_resource type="Resource" id="Resource_2jvlt"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("5_xrvue")
+count = 2
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_c6hrs"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("2_g26yg")
+count = 2
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_ufnub"]
+script = ExtResource("1_tdhyf")
+level_index = 4
+level_horde = SubResource("Resource_qn60u")
+description = "hi_mom"
+time_limit = 20.0
+time_limit_reward = SubResource("Resource_c6hrs")
+point_limit = 650
+point_limit_reward = SubResource("Resource_2jvlt")
+metadata/_custom_type_script = "uid://0pflx3jlv045"
+
+[sub_resource type="Resource" id="Resource_fqvb0"]
+script = ExtResource("10_0flij")
+enemy_index = 2
+overridden_hp = 50.0
+amount = 2
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_tqm8v"]
+script = ExtResource("10_0flij")
+enemy_index = 3
+overridden_hp = 50.0
+amount = 3
+distance = 3
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_hp1od"]
+script = ExtResource("10_0flij")
+enemy_index = 0
+overridden_hp = 60.0
+amount = 4
+distance = 3
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_mfgfd"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_fqvb0"), SubResource("Resource_tqm8v"), SubResource("Resource_hp1od")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_tg3l3"]
+script = ExtResource("10_0flij")
+enemy_index = 1
+overridden_hp = 40.0
+amount = 2
+distance = 4
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_eqli6"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_tg3l3")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_xs3pn"]
+script = ExtResource("10_0flij")
+enemy_index = 4
+overridden_hp = 1.0
+amount = 1
+distance = 1
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_6qdgd"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_xs3pn")])
+delay_seconds_before_next = 0.1
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_vfokh"]
+script = ExtResource("2_l1c6h")
+targets = Dictionary[int, PackedScene]({
+0: ExtResource("3_4kwd5"),
+1: ExtResource("4_t3xb8"),
+2: ExtResource("5_6ncib"),
+3: ExtResource("6_1e56m"),
+4: ExtResource("7_878rs"),
+5: ExtResource("8_epii3")
+})
+waves = Array[ExtResource("9_ku0rg")]([SubResource("Resource_mfgfd"), SubResource("Resource_eqli6"), SubResource("Resource_eqli6"), SubResource("Resource_eqli6"), SubResource("Resource_6qdgd"), SubResource("Resource_6qdgd"), SubResource("Resource_6qdgd"), SubResource("Resource_6qdgd"), SubResource("Resource_6qdgd")])
+metadata/_custom_type_script = "uid://cx37waevi11ka"
+
+[sub_resource type="Resource" id="Resource_hqtvd"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("15_t3xb8")
+count = 6
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_goe3p"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("14_4kwd5")
+count = 2
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_o84vg"]
+script = ExtResource("1_tdhyf")
+level_index = 5
+level_horde = SubResource("Resource_vfokh")
+description = "mad_surprise"
+time_limit = 40.0
+time_limit_reward = SubResource("Resource_goe3p")
+point_limit = 900
+point_limit_reward = SubResource("Resource_hqtvd")
+metadata/_custom_type_script = "uid://0pflx3jlv045"
+
+[sub_resource type="Resource" id="Resource_rmrh0"]
+script = ExtResource("10_0flij")
+enemy_index = 0
+overridden_hp = 60.0
+amount = 2
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_p85xn"]
+script = ExtResource("10_0flij")
+enemy_index = 1
+overridden_hp = 60.0
+amount = 2
+distance = 3
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_utwj8"]
+script = ExtResource("10_0flij")
+enemy_index = 0
+overridden_hp = 60.0
+amount = 2
+distance = 4
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_xbn2p"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_rmrh0"), SubResource("Resource_p85xn"), SubResource("Resource_utwj8")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_ydn2t"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_rmrh0"), SubResource("Resource_p85xn"), SubResource("Resource_utwj8")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_vhae4"]
+script = ExtResource("10_0flij")
+enemy_index = 5
+overridden_hp = 500.0
+amount = 1
+distance = 1
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_gjiol"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_vhae4")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_27tc1"]
+script = ExtResource("2_l1c6h")
+targets = Dictionary[int, PackedScene]({
+0: ExtResource("3_4kwd5"),
+1: ExtResource("4_t3xb8"),
+2: ExtResource("5_6ncib"),
+3: ExtResource("6_1e56m"),
+4: ExtResource("7_878rs"),
+5: ExtResource("8_epii3")
+})
+waves = Array[ExtResource("9_ku0rg")]([SubResource("Resource_xbn2p"), SubResource("Resource_ydn2t"), SubResource("Resource_gjiol")])
+metadata/_custom_type_script = "uid://cx37waevi11ka"
+
+[sub_resource type="Resource" id="Resource_0ysqp"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("16_6ncib")
+count = 3
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_2hi5g"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("16_6ncib")
+count = 3
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_e2tab"]
+script = ExtResource("1_tdhyf")
+level_index = 6
+level_horde = SubResource("Resource_27tc1")
+description = "boo"
+time_limit = 30.0
+time_limit_reward = SubResource("Resource_2hi5g")
+point_limit = 900
+point_limit_reward = SubResource("Resource_0ysqp")
+metadata/_custom_type_script = "uid://0pflx3jlv045"
+
+[sub_resource type="Resource" id="Resource_d6gwk"]
+script = ExtResource("10_0flij")
+enemy_index = 0
+overridden_hp = 10.0
+amount = 5
+distance = 4
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_tgh4f"]
+script = ExtResource("10_0flij")
+enemy_index = 1
+overridden_hp = 10.0
+amount = 5
+distance = 4
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_mkroo"]
+script = ExtResource("10_0flij")
+enemy_index = 3
+overridden_hp = 10.0
+amount = 8
+distance = 3
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_wgya2"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_d6gwk"), SubResource("Resource_tgh4f"), SubResource("Resource_mkroo")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_px0du"]
+script = ExtResource("10_0flij")
+enemy_index = 3
+overridden_hp = 10.0
+amount = 5
+distance = 4
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_bky2p"]
+script = ExtResource("10_0flij")
+enemy_index = 0
+overridden_hp = 10.0
+amount = 5
+distance = 4
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_mjhya"]
+script = ExtResource("10_0flij")
+enemy_index = 2
+overridden_hp = 10.0
+amount = 8
+distance = 3
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_bhk0g"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_px0du"), SubResource("Resource_bky2p"), SubResource("Resource_mjhya")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_w5ias"]
+script = ExtResource("10_0flij")
+enemy_index = 4
+overridden_hp = 10.0
+amount = 5
+distance = 1
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_3ic14"]
+script = ExtResource("10_0flij")
+enemy_index = 4
+overridden_hp = 10.0
+amount = 9
+distance = 2
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_ookvq"]
+script = ExtResource("10_0flij")
+enemy_index = 4
+overridden_hp = 10.0
+amount = 14
+distance = 3
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_66tdw"]
+script = ExtResource("10_0flij")
+enemy_index = 4
+overridden_hp = 10.0
+amount = 15
+distance = 4
+metadata/_custom_type_script = "uid://tg65l0f0v18"
+
+[sub_resource type="Resource" id="Resource_xsi2c"]
+script = ExtResource("9_ku0rg")
+packs = Array[ExtResource("10_0flij")]([SubResource("Resource_w5ias"), SubResource("Resource_3ic14"), SubResource("Resource_ookvq"), SubResource("Resource_66tdw")])
+delay_seconds_before_next = 0.5
+metadata/_custom_type_script = "uid://b16ensll14eox"
+
+[sub_resource type="Resource" id="Resource_kh5m3"]
+script = ExtResource("2_l1c6h")
+targets = Dictionary[int, PackedScene]({
+0: ExtResource("3_4kwd5"),
+1: ExtResource("4_t3xb8"),
+2: ExtResource("5_6ncib"),
+3: ExtResource("6_1e56m"),
+4: ExtResource("7_878rs"),
+5: ExtResource("8_epii3")
+})
+waves = Array[ExtResource("9_ku0rg")]([SubResource("Resource_wgya2"), SubResource("Resource_bhk0g"), SubResource("Resource_xsi2c")])
+metadata/_custom_type_script = "uid://cx37waevi11ka"
+
+[sub_resource type="Resource" id="Resource_4t7f0"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("17_1e56m")
+count = 1
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_n2tmh"]
+script = ExtResource("3_sup8v")
+bullet = ExtResource("17_1e56m")
+count = 1
+metadata/_custom_type_script = "uid://dcx5bw1ph8q1"
+
+[sub_resource type="Resource" id="Resource_gc45e"]
+script = ExtResource("1_tdhyf")
+level_index = 7
+level_horde = SubResource("Resource_kh5m3")
+description = "hordes"
+time_limit = 0.0
+time_limit_reward = SubResource("Resource_n2tmh")
+point_limit = 0
+point_limit_reward = SubResource("Resource_4t7f0")
 metadata/_custom_type_script = "uid://0pflx3jlv045"
 
 [resource]
 script = ExtResource("2_3vo4r")
-levels = Array[ExtResource("1_tdhyf")]([SubResource("Resource_tdhyf")])
+levels = Array[ExtResource("1_tdhyf")]([SubResource("Resource_cnvyw"), SubResource("Resource_ddgrx"), SubResource("Resource_47gfu"), SubResource("Resource_kofmd"), SubResource("Resource_ufnub"), SubResource("Resource_o84vg"), SubResource("Resource_e2tab"), SubResource("Resource_gc45e")])
 metadata/_custom_type_script = "uid://cimlielktjhf6"

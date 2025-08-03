@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2w405xkg8en3"]
+
+[ext_resource type="Theme" uid="uid://c3lfeadrw1cv" path="res://assets/new_theme.tres" id="1_5eqsv"]
+[ext_resource type="Script" uid="uid://beucmjqu0u3r8" path="res://ui/opened_level_list.gd" id="2_pvwrb"]
+
+[node name="OpenedLevelList" type="VBoxContainer"]
+offset_right = 468.0
+offset_bottom = 314.0
+theme = ExtResource("1_5eqsv")
+script = ExtResource("2_pvwrb")

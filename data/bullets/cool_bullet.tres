@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BulletInfo" load_steps=3 format=3 uid="uid://dsfn6ph02y7fo"]
+
+[ext_resource type="Script" uid="uid://by0iuv1jq87nv" path="res://models/bullet_info.gd" id="1_mrg0m"]
+[ext_resource type="Texture2D" uid="uid://ctln3pqhd8eo5" path="res://assets/ui/aim/bullet.png" id="2_m6e2r"]
+
+[resource]
+script = ExtResource("1_mrg0m")
+name = "cool"
+texture = ExtResource("2_m6e2r")
+color = Color(0.324657, 0.0011716, 0.556354, 1)
+recoil_angle = 0.0
+recoil_speed = 1.0
+recoil_duration = 0.1
+damage = 20.0
+distance_damage_multiplier = 1.0
+aim_radius = 1.0
+bullet_switch_time = 0.1
+metadata/_custom_type_script = "uid://by0iuv1jq87nv"

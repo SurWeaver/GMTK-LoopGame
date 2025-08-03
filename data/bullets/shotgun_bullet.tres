@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BulletInfo" load_steps=3 format=3 uid="uid://fv2lcluglw11"]
+
+[ext_resource type="Script" uid="uid://by0iuv1jq87nv" path="res://models/bullet_info.gd" id="1_vq7w1"]
+[ext_resource type="Texture2D" uid="uid://ctln3pqhd8eo5" path="res://assets/ui/aim/bullet.png" id="2_glr5v"]
+
+[resource]
+script = ExtResource("1_vq7w1")
+name = "shotgun"
+texture = ExtResource("2_glr5v")
+color = Color(0.687104, 0.57278, 0, 1)
+recoil_angle = 15.0
+recoil_speed = 30.0
+recoil_duration = 0.1
+damage = 20.0
+distance_damage_multiplier = -0.4
+aim_radius = 15.0
+bullet_switch_time = 0.2
+metadata/_custom_type_script = "uid://by0iuv1jq87nv"

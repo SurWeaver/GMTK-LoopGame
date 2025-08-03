@@ -12,6 +12,14 @@ anger_name,Anger,Злая
 anger_desc,"Nasty bullet with a high recoil, damage and bullet switch time","Вредная пуля с высокой отдачей, уроном и сменой патрона"
 sniper_name,Sniper,Снайпер
 sniper_desc,A bullet that deals massive damage to distant enemies (and your shoulder),"Пуля, наносящая огромный урон отдалённым врагам (и вашему плечу)"
+cool_name,Cool,Крутая
+cool_desc,It's just better in every way,Она просто лучше во всем
+mad_name,Mad,Безумная
+mad_desc,"The recoil logic has disappeared somewhere, but it shoots just fine","Логика отдачи куда-то пропала, зато стреляет - что надо"
+nuclear_name,Nuclear,Ядерная
+nuclear_desc,"Destroys everything around, but takes a long time to switch to the next shot","Уничтожает всё вокруг, однако долго переключается на следующий выстрел"
+shotgun_name,Shotgun,Дробовик
+shotgun_desc,Deal increased damage to your neighbors,Наносите повышенный урон ближнему своему
 barrel,Barrel,Барабан
 load,Load,Загрузить
 save,Save,Сохранить
@@ -21,3 +29,11 @@ needed_time,Needed time,Необходимое время
 needed_points,Needed points,Необходимые очки
 rewards,Your rewards,Ваши награды
 return_to_menu,Return to menu,Вернуться в меню
+beginning,Beginning,Начало
+circle_ones,Circle ones,Кругляши
+long_ones,Long ones,Длинныши
+two_and_one_problem,Two and one problem,Две и одна проблема
+hi_mom,"Hi, mom!","Привет, мам!"
+mad_surprise,Mad surprise,Безумный сюрприз
+boo,Boo,Бу
+hordes,Hordes,Орды

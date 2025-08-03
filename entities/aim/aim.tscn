@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://qa4wk616efql"]
+[gd_scene load_steps=10 format=3 uid="uid://qa4wk616efql"]
 
 [ext_resource type="Script" uid="uid://drgjfvc5us8fu" path="res://entities/aim/aim.gd" id="1_abbam"]
 [ext_resource type="Texture2D" uid="uid://bs8llnm6y16qn" path="res://assets/ui/aim/aim.png" id="2_5tysk"]
@@ -6,8 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://cb4l525hynp0g" path="res://assets/ui/aim/bullet_frame.png" id="4_idher"]
 [ext_resource type="Script" uid="uid://bmgylt6et11vv" path="res://entities/aim/target_tracker.gd" id="5_5tysk"]
 [ext_resource type="Texture2D" uid="uid://vxdp45uyuatd" path="res://assets/ui/aim/aim_center.png" id="5_7hkt2"]
+[ext_resource type="AudioStream" uid="uid://dafki20uegla" path="res://assets/audio/shoot.wav" id="7_idher"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wflsq"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_748p2"]
+random_pitch = 1.8
+random_volume_offset_db = 1.6
+streams_count = 1
+stream_0/stream = ExtResource("7_idher")
 
 [node name="Aim" type="Node2D"]
 texture_filter = 1
@@ -17,6 +24,10 @@ script = ExtResource("1_abbam")
 
 [node name="BarrelAim" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("2_5tysk")
+
+[node name="Frame" type="Sprite2D" parent="Visuals"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("4_idher")
 
 [node name="BulletSprites" type="Node2D" parent="Visuals"]
 unique_name_in_owner = true
@@ -44,10 +55,6 @@ texture = ExtResource("3_7hkt2")
 [node name="BulletAim6" type="Sprite2D" parent="Visuals/BulletSprites"]
 position = Vector2(-119.512, -68.9998)
 texture = ExtResource("3_7hkt2")
-
-[node name="Frame" type="Sprite2D" parent="Visuals"]
-modulate = Color(0, 0, 0, 1)
-texture = ExtResource("4_idher")
 
 [node name="AimCenter" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("5_7hkt2")
@@ -119,3 +126,7 @@ shape = SubResource("CircleShape2D_wflsq")
 script = ExtResource("5_5tysk")
 tracker_area = NodePath("../ShootCollisionArea")
 metadata/_custom_type_script = "uid://bmgylt6et11vv"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_748p2")
+bus = &"Sfx"

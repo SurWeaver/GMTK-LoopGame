@@ -16,6 +16,7 @@ var barrel: BarrelInfo
 
 @onready var bullets_transform_node: Node2D = %Bullets
 @onready var target_tracker: TargetTracker = $TargetTracker
+@onready var shoot_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var bullets: BarrelEnumerator
 
@@ -100,6 +101,7 @@ func animate_bullet_switch() -> void:
 
 
 func shoot() -> void:
+	shoot_player.play()
 	var current_bullet = bullets.current()
 	var areas = target_tracker.get_overlapping_areas()
 	for damage_area in areas:

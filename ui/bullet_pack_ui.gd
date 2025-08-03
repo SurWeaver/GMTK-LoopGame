@@ -13,6 +13,7 @@ func initialize(pack: BulletPack) -> void:
 	var bullet_sprite: TextureRect = %BulletSprite
 	var name_label: Label = %NameLabel
 	var count_label: Label = %CountLabel
+
 	bullet_sprite.modulate = pack.bullet.color
 	bullet_sprite.texture = pack.bullet.texture
 	name_label.text = pack.bullet.name + "_name"

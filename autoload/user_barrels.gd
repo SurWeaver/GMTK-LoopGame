@@ -8,9 +8,12 @@ var current_barrel: BarrelInfo
 
 
 func _init() -> void:
+	load_barrels()
+
+func load_barrels() -> void:
 	if FileAccess.file_exists(Resources.PATHS.user_barrels):
 		var user_barrel_collection: BarrelCollection = load(Resources.PATHS.user_barrels)
-		barrels = user_barrel_collection.barrels
+		barrels = user_barrel_collection.barrels.duplicate(true)
 		current_barrel = barrels[0].duplicate(true)
 		return
 

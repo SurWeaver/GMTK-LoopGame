@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bq35t5wmegbco"]
+[gd_scene load_steps=20 format=3 uid="uid://bq35t5wmegbco"]
 
 [ext_resource type="Script" uid="uid://p732avb48khk" path="res://scenes/templates/level.gd" id="1_7t2ac"]
 [ext_resource type="Texture2D" uid="uid://cxitbvywk8q0g" path="res://assets/level/sky.png" id="1_cys57"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://cyh5a0i8oxb2j" path="res://ui/timer_label.gd" id="16_jwn3x"]
 [ext_resource type="Script" uid="uid://wgvphdwlbo65" path="res://ui/point_label.gd" id="17_jwn3x"]
 [ext_resource type="PackedScene" uid="uid://e2apal1e3euw" path="res://ui/level_end_screen.tscn" id="18_mqn4i"]
+[ext_resource type="AudioStream" uid="uid://2kokr3spvg7n" path="res://assets/audio/theme.mp3" id="19_gqpr6"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_7t2ac")
@@ -363,10 +364,14 @@ horizontal_alignment = 2
 script = ExtResource("17_jwn3x")
 metadata/_custom_type_script = "uid://wgvphdwlbo65"
 
-[node name="LevelEndScreen" parent="Control" node_paths=PackedStringArray("point_label", "timer_label") instance=ExtResource("18_mqn4i")]
+[node name="LevelEndScreen" parent="Control" instance=ExtResource("18_mqn4i")]
 layout_mode = 1
-point_label = NodePath("../HUD/PointLabel")
-timer_label = NodePath("../HUD/TimerLabel")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_gqpr6")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="earned_points" from="Aim" to="Control/HUD/PointLabel" method="add_points"]
 [connection signal="level_finished" from="Spawner" to="." method="_on_level_finish"]

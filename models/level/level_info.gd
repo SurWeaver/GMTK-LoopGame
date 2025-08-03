@@ -5,7 +5,6 @@ extends Resource
 @export var level_index: int
 @export var level_horde: LevelHorde
 @export var description: String
-@export var unlocked: bool = false
 
 @export_group("Rewards")
 @export var time_limit: float

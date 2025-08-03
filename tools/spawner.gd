@@ -23,6 +23,8 @@ func spawn_wave(wave: LevelWave) -> void:
 		var free_places = dispenser.get_shuffled_free_places(pack.amount)
 		for i in range(pack.amount):
 			var enemy = level_horde.get_target_new_scene(pack.enemy_index)
+			if pack.overridden_hp > 0:
+				enemy.hp = pack.overridden_hp
 			free_places[i].add_child(enemy)
 			enemy.died.connect(count_down_enemy)
 

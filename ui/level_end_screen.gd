@@ -8,7 +8,6 @@ func animate_show(best_record: PlayerLevelUnlock) -> void:
 	show()
 	var current_level = Resources.LEVELS.levels[Levels.current_level_index]
 
-	current_level.point_limit
 	%NeededTimeLabel.text = "%d %s" % [current_level.time_limit, tr("seconds_suffix")]
 	%RecordTimeLabel.text = "%d %s" % [best_record.least_time, tr("seconds_suffix")]
 

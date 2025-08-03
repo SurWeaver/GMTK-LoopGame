@@ -49,7 +49,10 @@ func show_bullet_description(pack: BulletPack) -> void:
 
 
 func _on_load_barrel(barrel_index: int) -> void:
-	load_barrel(UserBarrels.barrels[barrel_index])
+	var barrel = UserBarrels.barrels[barrel_index]
+	UserBarrels.current_barrel = barrel.duplicate(true)
+	load_barrel(barrel)
+	bullet_manager.bullets = barrel.bullets.duplicate(true)
 
 
 func _on_save_to_barrel(barrel_index: int) -> void:
@@ -64,3 +67,10 @@ func _on_bullet_manager_added(index: int, bullet: BulletInfo) -> void:
 	ui_bullet.initialize(bullet)
 	ui_bullet.animate_insert()
 	UserBarrels.current_barrel.bullets[index] = bullet
+
+
+func _on_opened_level_list_requested_level(level_index: int) -> void:
+	if not bullet_manager.is_ready():
+		return
+	Levels.current_level_index = level_index
+	TransitionScreen.switch_to_scene(Resources.PATHS.level)
