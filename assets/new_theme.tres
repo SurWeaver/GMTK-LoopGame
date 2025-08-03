@@ -1,0 +1,18 @@
+[gd_resource type="Theme" format=3 uid="uid://c3lfeadrw1cv"]
+
+[resource]
+CritDamageLabel/base_type = &"Label"
+CritDamageLabel/colors/font_color = Color(0.435294, 0.0431373, 0.0509804, 1)
+CritDamageLabel/colors/font_outline_color = Color(0.16, 0.016, 0.0184, 1)
+CritDamageLabel/font_sizes/font_size = 120
+DamageLabel/base_type = &"Label"
+DamageLabel/colors/font_color = Color(1, 1, 1, 1)
+DamageLabel/colors/font_outline_color = Color(0.435294, 0.0431373, 0.0509804, 1)
+DamageLabel/font_sizes/font_size = 120
+Label/colors/font_color = Color(0.435294, 0.0431373, 0.0509804, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0.25, 0.25, 0.25, 0.541176)
+Label/constants/outline_size = 14
+Label/constants/shadow_offset_x = 7
+Label/constants/shadow_offset_y = 7
+Label/font_sizes/font_size = 200
