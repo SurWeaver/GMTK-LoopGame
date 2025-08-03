@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnt7wtb0e5mkt"]
+
+[ext_resource type="Script" uid="uid://krkysii8fabu" path="res://entities/target/target.gd" id="1_17wyf"]
+[ext_resource type="Texture2D" uid="uid://cc3i6eqm38a07" path="res://assets/enemies/plankton.png" id="3_p74xw"]
+[ext_resource type="Script" uid="uid://d0ilw06jn7jmy" path="res://entities/target/target_area.gd" id="4_7flt0"]
+
+[node name="Target" type="Node2D" node_paths=PackedStringArray("visual_node")]
+script = ExtResource("1_17wyf")
+hp = 20.0
+visual_height = 730.0
+visual_node = NodePath("Visuals")
+hit_scale = Vector2(0.95, 0.95)
+metadata/_custom_type_script = "uid://krkysii8fabu"
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Plankton" type="Sprite2D" parent="Visuals"]
+position = Vector2(40, -350)
+texture = ExtResource("3_p74xw")
+
+[node name="TargetAreas" type="Node2D" parent="."]
+
+[node name="TargetArea" type="Area2D" parent="TargetAreas" node_paths=PackedStringArray("target")]
+script = ExtResource("4_7flt0")
+target = NodePath("../..")
+metadata/_custom_type_script = "uid://d0ilw06jn7jmy"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TargetAreas/TargetArea"]
+position = Vector2(289, 134)
+polygon = PackedVector2Array(-371, -535, -291, -613, -231, -625, -163, -569, -148, -478, -164, -390, -217, -141, -260, -109, -347, -114, -396, -238, -409, -405)

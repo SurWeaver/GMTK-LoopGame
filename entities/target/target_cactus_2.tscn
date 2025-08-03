@@ -27,4 +27,14 @@ metadata/_custom_type_script = "uid://d0ilw06jn7jmy"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TargetAreas/TargetArea"]
 position = Vector2(289, 134)
-polygon = PackedVector2Array(-495, -567, -469, -725, -300, -778, -103, -713, -88, -572, -29, -436, -72, -177, -134, -110, -281, -68, -383, -77, -460, -118, -544, -295, -545, -470)
+polygon = PackedVector2Array(-474, -616, -406, -578, -182, -575, -99, -630, -91, -569, -29, -436, -72, -177, -134, -110, -281, -68, -383, -77, -460, -118, -544, -295, -545, -470)
+
+[node name="TargetArea2" type="Area2D" parent="TargetAreas" node_paths=PackedStringArray("target")]
+script = ExtResource("4_ies5e")
+damage_multiplier = 2.0
+target = NodePath("../..")
+metadata/_custom_type_script = "uid://d0ilw06jn7jmy"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TargetAreas/TargetArea2"]
+position = Vector2(289, 134)
+polygon = PackedVector2Array(-406, -578, -475, -628, -515, -726, -441, -784, -382, -761, -335, -821, -233, -817, -148, -759, -92, -786, -48, -738, -78, -646, -181, -575)

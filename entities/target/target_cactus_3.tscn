@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwpib7qy03631"]
+
+[ext_resource type="Script" uid="uid://krkysii8fabu" path="res://entities/target/target.gd" id="1_emdb6"]
+[ext_resource type="Texture2D" uid="uid://cbclildseqor2" path="res://assets/enemies/body_another.png" id="2_kkf3a"]
+[ext_resource type="Texture2D" uid="uid://cggj0ctc42a0" path="res://assets/enemies/hat_1.png" id="3_gmjnn"]
+[ext_resource type="Script" uid="uid://d0ilw06jn7jmy" path="res://entities/target/target_area.gd" id="3_pgcv7"]
+
+[node name="Target" type="Node2D" node_paths=PackedStringArray("visual_node")]
+script = ExtResource("1_emdb6")
+hp = 20.0
+visual_height = 600.0
+visual_node = NodePath("Visuals")
+hit_scale = Vector2(0.95, 0.95)
+metadata/_custom_type_script = "uid://krkysii8fabu"
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="Visuals"]
+position = Vector2(-6, -298)
+texture = ExtResource("2_kkf3a")
+
+[node name="Hat" type="Sprite2D" parent="Visuals"]
+position = Vector2(-8, -300)
+texture = ExtResource("3_gmjnn")
+
+[node name="TargetAreas" type="Node2D" parent="."]
+
+[node name="TargetArea" type="Area2D" parent="TargetAreas" node_paths=PackedStringArray("target")]
+script = ExtResource("3_pgcv7")
+target = NodePath("../..")
+metadata/_custom_type_script = "uid://d0ilw06jn7jmy"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TargetAreas/TargetArea"]
+position = Vector2(289, 134)
+polygon = PackedVector2Array(-513, -563, -426, -600, -153, -623, -105, -598, -42, -529, -4, -329, -57, -157, -183, -86, -286, -62, -476, -113, -577, -239, -584, -420)
+
+[node name="TargetArea2" type="Area2D" parent="TargetAreas" node_paths=PackedStringArray("target")]
+script = ExtResource("3_pgcv7")
+damage_multiplier = 2.0
+target = NodePath("../..")
+metadata/_custom_type_script = "uid://d0ilw06jn7jmy"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TargetAreas/TargetArea2"]
+position = Vector2(289, 134)
+polygon = PackedVector2Array(-470, -662, -355, -725, -222, -724, -160, -699, -155, -661, -184, -628, -425, -603, -476, -632)

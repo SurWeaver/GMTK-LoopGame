@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnw1seb7qwhac"]
+
+[ext_resource type="Script" uid="uid://krkysii8fabu" path="res://entities/target/target.gd" id="1_oqee5"]
+[ext_resource type="Texture2D" uid="uid://cc3vg58f4l07r" path="res://assets/enemies/lasso.png" id="2_oqee5"]
+[ext_resource type="Texture2D" uid="uid://bb00w4o283vdi" path="res://assets/enemies/body_arm.png" id="3_vm572"]
+[ext_resource type="Script" uid="uid://d0ilw06jn7jmy" path="res://entities/target/target_area.gd" id="4_f8d3s"]
+
+[node name="Target" type="Node2D" node_paths=PackedStringArray("visual_node")]
+script = ExtResource("1_oqee5")
+hp = 20.0
+visual_height = 700.0
+visual_node = NodePath("Visuals")
+hit_scale = Vector2(0.95, 0.95)
+metadata/_custom_type_script = "uid://krkysii8fabu"
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Lasso" type="Sprite2D" parent="Visuals"]
+position = Vector2(-18, -315)
+texture = ExtResource("2_oqee5")
+
+[node name="Body" type="Sprite2D" parent="Visuals"]
+position = Vector2(-20, -314)
+texture = ExtResource("3_vm572")
+
+[node name="TargetAreas" type="Node2D" parent="."]
+
+[node name="TargetArea" type="Area2D" parent="TargetAreas" node_paths=PackedStringArray("target")]
+script = ExtResource("4_f8d3s")
+target = NodePath("../..")
+metadata/_custom_type_script = "uid://d0ilw06jn7jmy"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TargetAreas/TargetArea"]
+position = Vector2(289, 134)
+polygon = PackedVector2Array(-396, -626, -249, -584, -233, -459, -154, -389, -152, -283, -240, -101, -346, -94, -453, -262, -418, -402, -526, -502)
+
+[node name="TargetArea2" type="Area2D" parent="TargetAreas" node_paths=PackedStringArray("target")]
+script = ExtResource("4_f8d3s")
+damage_multiplier = 2.0
+target = NodePath("../..")
+metadata/_custom_type_script = "uid://d0ilw06jn7jmy"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TargetAreas/TargetArea2"]
+position = Vector2(289, 134)
+polygon = PackedVector2Array(-353, -620, -281, -703, -345, -779, -278, -824, -226, -787, -122, -662, -142, -511, -232, -508, -244, -590)

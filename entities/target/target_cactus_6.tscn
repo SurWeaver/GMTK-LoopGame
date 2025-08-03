@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq153b7fukj7m"]
+
+[ext_resource type="Script" uid="uid://krkysii8fabu" path="res://entities/target/target.gd" id="1_yc7x2"]
+[ext_resource type="Texture2D" uid="uid://c1c3lsapmk68k" path="res://assets/enemies/boo.png" id="2_yc7x2"]
+[ext_resource type="Script" uid="uid://d0ilw06jn7jmy" path="res://entities/target/target_area.gd" id="3_yha4d"]
+
+[node name="Target" type="Node2D" node_paths=PackedStringArray("visual_node")]
+script = ExtResource("1_yc7x2")
+hp = 20.0
+visual_height = 730.0
+visual_node = NodePath("Visuals")
+hit_scale = Vector2(0.95, 0.95)
+metadata/_custom_type_script = "uid://krkysii8fabu"
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Boo" type="Sprite2D" parent="Visuals"]
+position = Vector2(10, -325)
+texture = ExtResource("2_yc7x2")
+
+[node name="TargetAreas" type="Node2D" parent="."]
+
+[node name="TargetArea" type="Area2D" parent="TargetAreas" node_paths=PackedStringArray("target")]
+script = ExtResource("3_yha4d")
+target = NodePath("../..")
+metadata/_custom_type_script = "uid://d0ilw06jn7jmy"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TargetAreas/TargetArea"]
+position = Vector2(289, 134)
+polygon = PackedVector2Array(-351, -543, -280, -538, -167, -603, -135, -689, -87, -601, 4, -423, -9, -227, -128, -119, -268, -88, -336, -90, -485, -154, -541, -223, -558, -420, -449, -589, -460, -641, -410, -677)
+
+[node name="TargetArea2" type="Area2D" parent="TargetAreas" node_paths=PackedStringArray("target")]
+script = ExtResource("3_yha4d")
+damage_multiplier = 2.0
+target = NodePath("../..")
+metadata/_custom_type_script = "uid://d0ilw06jn7jmy"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TargetAreas/TargetArea2"]
+position = Vector2(289, 134)
+polygon = PackedVector2Array(-311, -783, -230, -778, -182, -823, -138, -832, -119, -794, -137, -690, -169, -604, -280, -541, -349, -545, -409, -684, -398, -699, -416, -818, -378, -833)
