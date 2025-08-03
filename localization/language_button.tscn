@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ytg3siy1r147"]
+
+[ext_resource type="Script" uid="uid://bh0p4nd4ms0ak" path="res://localization/language_button.gd" id="1_2yyix"]
+[ext_resource type="Theme" uid="uid://c3lfeadrw1cv" path="res://assets/new_theme.tres" id="2_grsbn"]
+
+[node name="LanguageButton" type="TextureButton"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 622.0
+offset_bottom = 400.0
+script = ExtResource("1_2yyix")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_grsbn")
+theme_type_variation = &"MenuLabel"
+text = "locale"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

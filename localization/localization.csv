@@ -3,3 +3,5 @@ begin,Let's begin,Начнём
 ready,READY?,НА СТАРТ
 set,SET,ВНИМАНИЕ
 go,GO!,МАРШ!
+seconds_suffix,sec.,сек.
+locale,EN,РУ

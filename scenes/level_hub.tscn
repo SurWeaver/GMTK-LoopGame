@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0uu4bibnhi7p"]
+[gd_scene load_steps=11 format=3 uid="uid://b0uu4bibnhi7p"]
 
 [ext_resource type="Script" uid="uid://cmnwmrggh6kwk" path="res://scenes/level_hub.gd" id="1_bvpce"]
 [ext_resource type="Texture2D" uid="uid://drlob03ebp1d0" path="res://assets/hub/table.png" id="2_vrqs0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bmr0ht83wag6v" path="res://assets/hub/revolver_slice_3.png" id="7_7mk2q"]
 [ext_resource type="Texture2D" uid="uid://dfhlcpshbjby5" path="res://assets/hub/revolver_slice_4.png" id="8_2r2a3"]
 [ext_resource type="Texture2D" uid="uid://b5aupnr4nsccw" path="res://assets/hub/revolver_slice_5.png" id="9_2n28w"]
+[ext_resource type="PackedScene" uid="uid://ytg3siy1r147" path="res://localization/language_button.tscn" id="10_tcpmd"]
 
 [node name="LevelHub" type="Control"]
 layout_mode = 3
@@ -193,6 +194,13 @@ offset_top = 376.0
 offset_right = 833.0
 offset_bottom = 619.0
 text = "PRESS ME"
+
+[node name="LanguageButton" parent="Buttons" instance=ExtResource("10_tcpmd")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 1799.0
+offset_right = 646.0
+offset_bottom = 2199.0
 
 [connection signal="mouse_entered" from="Buttons/RevolverBulletButtons/TextureButton1" to="Revolver/Bullet1" method="animate_show"]
 [connection signal="mouse_exited" from="Buttons/RevolverBulletButtons/TextureButton1" to="Revolver/Bullet1" method="animate_hide"]
