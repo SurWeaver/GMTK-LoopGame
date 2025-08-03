@@ -1,0 +1,215 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0uu4bibnhi7p"]
+
+[ext_resource type="Script" uid="uid://bedvwjdohad5v" path="res://scenes/main_menu.gd" id="1_472xg"]
+[ext_resource type="Texture2D" uid="uid://drlob03ebp1d0" path="res://assets/hub/table.png" id="2_vrqs0"]
+[ext_resource type="Texture2D" uid="uid://dsiit4so6p2jc" path="res://assets/hub/barrel_shadow.png" id="3_bvpce"]
+[ext_resource type="Texture2D" uid="uid://pu2kpgv6vhqi" path="res://assets/hub/revolver_slice_1.png" id="4_tcpmd"]
+[ext_resource type="Texture2D" uid="uid://cnkot5grqrrdn" path="res://assets/hub/revolver_slice_2.png" id="5_7nfut"]
+[ext_resource type="PackedScene" uid="uid://cwk8yse5b4ja0" path="res://ui/revolver_bullet.tscn" id="6_tmmi1"]
+[ext_resource type="Texture2D" uid="uid://bmr0ht83wag6v" path="res://assets/hub/revolver_slice_3.png" id="7_7mk2q"]
+[ext_resource type="Texture2D" uid="uid://dfhlcpshbjby5" path="res://assets/hub/revolver_slice_4.png" id="8_2r2a3"]
+[ext_resource type="Texture2D" uid="uid://b5aupnr4nsccw" path="res://assets/hub/revolver_slice_5.png" id="9_2n28w"]
+
+[node name="LevelHub" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_472xg")
+
+[node name="Table" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = ExtResource("2_vrqs0")
+
+[node name="Revolver" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="BarrelShadow" type="TextureRect" parent="Revolver"]
+layout_mode = 0
+offset_left = 2993.0
+offset_top = 219.0
+offset_right = 3418.0
+offset_bottom = 788.0
+mouse_filter = 2
+texture = ExtResource("3_bvpce")
+
+[node name="RevolverSlice1" type="TextureRect" parent="Revolver"]
+layout_mode = 0
+offset_left = 2160.0
+offset_right = 3840.0
+offset_bottom = 2160.0
+mouse_filter = 2
+texture = ExtResource("4_tcpmd")
+
+[node name="RevolverSlice2" type="TextureRect" parent="Revolver"]
+layout_mode = 0
+offset_left = 2160.0
+offset_right = 3840.0
+offset_bottom = 2160.0
+mouse_filter = 2
+texture = ExtResource("5_7nfut")
+
+[node name="Bullet1" parent="Revolver" instance=ExtResource("6_tmmi1")]
+layout_mode = 1
+offset_left = 3270.0
+offset_top = 302.0
+offset_right = 3377.8
+offset_bottom = 463.96
+scale = Vector2(0.906588, 0.906588)
+
+[node name="Bullet2" parent="Revolver" instance=ExtResource("6_tmmi1")]
+layout_mode = 1
+offset_left = 3281.0
+offset_top = 493.0
+offset_right = 3391.8
+offset_bottom = 655.96
+scale = Vector2(0.881803, 0.881803)
+
+[node name="RevolverSlice3" type="TextureRect" parent="Revolver"]
+layout_mode = 0
+offset_left = 2160.0
+offset_right = 3840.0
+offset_bottom = 2160.0
+mouse_filter = 2
+texture = ExtResource("7_7mk2q")
+
+[node name="Bullet3" parent="Revolver" instance=ExtResource("6_tmmi1")]
+layout_mode = 1
+offset_left = 3159.0
+offset_top = 637.0
+offset_right = 3266.8
+offset_bottom = 802.96
+scale = Vector2(0.833333, 0.833333)
+
+[node name="Bullet6" parent="Revolver" instance=ExtResource("6_tmmi1")]
+layout_mode = 1
+offset_left = 3127.0
+offset_top = 262.0
+offset_right = 3233.8
+offset_bottom = 430.96
+
+[node name="RevolverSlice4" type="TextureRect" parent="Revolver"]
+layout_mode = 0
+offset_left = 2160.0
+offset_right = 3840.0
+offset_bottom = 2160.0
+mouse_filter = 2
+texture = ExtResource("8_2r2a3")
+
+[node name="Bullet4" parent="Revolver" instance=ExtResource("6_tmmi1")]
+layout_mode = 1
+offset_left = 3029.0
+offset_top = 590.0
+offset_right = 3140.8
+offset_bottom = 757.96
+scale = Vector2(0.887124, 0.887124)
+
+[node name="Bullet5" parent="Revolver" instance=ExtResource("6_tmmi1")]
+layout_mode = 1
+offset_left = 3026.0
+offset_top = 418.0
+offset_right = 3141.8
+offset_bottom = 587.96
+scale = Vector2(0.818512, 0.818512)
+
+[node name="RevolverSlice5" type="TextureRect" parent="Revolver"]
+layout_mode = 0
+offset_left = 2160.0
+offset_right = 3840.0
+offset_bottom = 2160.0
+mouse_filter = 2
+texture = ExtResource("9_2n28w")
+
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RevolverBulletButtons" type="Control" parent="Buttons"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton1" type="TextureButton" parent="Buttons/RevolverBulletButtons"]
+layout_mode = 0
+offset_left = 3271.0
+offset_top = 310.0
+offset_right = 3377.0
+offset_bottom = 454.0
+action_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="Buttons/RevolverBulletButtons"]
+layout_mode = 0
+offset_left = 3285.0
+offset_top = 503.0
+offset_right = 3391.0
+offset_bottom = 647.0
+action_mode = 0
+
+[node name="TextureButton3" type="TextureButton" parent="Buttons/RevolverBulletButtons"]
+layout_mode = 0
+offset_left = 3157.0
+offset_top = 643.0
+offset_right = 3263.0
+offset_bottom = 787.0
+action_mode = 0
+
+[node name="TextureButton4" type="TextureButton" parent="Buttons/RevolverBulletButtons"]
+layout_mode = 0
+offset_left = 3029.0
+offset_top = 599.0
+offset_right = 3135.0
+offset_bottom = 743.0
+action_mode = 0
+
+[node name="TextureButton5" type="TextureButton" parent="Buttons/RevolverBulletButtons"]
+layout_mode = 0
+offset_left = 3022.0
+offset_top = 424.0
+offset_right = 3128.0
+offset_bottom = 568.0
+action_mode = 0
+
+[node name="TextureButton6" type="TextureButton" parent="Buttons/RevolverBulletButtons"]
+layout_mode = 0
+offset_left = 3127.0
+offset_top = 272.0
+offset_right = 3233.0
+offset_bottom = 416.0
+action_mode = 0
+
+[node name="Button" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 376.0
+offset_right = 833.0
+offset_bottom = 619.0
+text = "PRESS ME"
+
+[connection signal="mouse_entered" from="Buttons/RevolverBulletButtons/TextureButton1" to="Revolver/Bullet1" method="animate_show"]
+[connection signal="mouse_exited" from="Buttons/RevolverBulletButtons/TextureButton1" to="Revolver/Bullet1" method="animate_hide"]
+[connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton1" to="Revolver/Bullet1" method="animate_remove"]
+[connection signal="mouse_entered" from="Buttons/RevolverBulletButtons/TextureButton2" to="Revolver/Bullet2" method="animate_show"]
+[connection signal="mouse_exited" from="Buttons/RevolverBulletButtons/TextureButton2" to="Revolver/Bullet2" method="animate_hide"]
+[connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton2" to="Revolver/Bullet2" method="animate_remove"]
+[connection signal="mouse_entered" from="Buttons/RevolverBulletButtons/TextureButton3" to="Revolver/Bullet3" method="animate_show"]
+[connection signal="mouse_exited" from="Buttons/RevolverBulletButtons/TextureButton3" to="Revolver/Bullet3" method="animate_hide"]
+[connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton3" to="Revolver/Bullet3" method="animate_remove"]
+[connection signal="mouse_entered" from="Buttons/RevolverBulletButtons/TextureButton4" to="Revolver/Bullet4" method="animate_show"]
+[connection signal="mouse_exited" from="Buttons/RevolverBulletButtons/TextureButton4" to="Revolver/Bullet4" method="animate_hide"]
+[connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton4" to="Revolver/Bullet4" method="animate_remove"]
+[connection signal="mouse_entered" from="Buttons/RevolverBulletButtons/TextureButton5" to="Revolver/Bullet5" method="animate_show"]
+[connection signal="mouse_exited" from="Buttons/RevolverBulletButtons/TextureButton5" to="Revolver/Bullet5" method="animate_hide"]
+[connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton5" to="Revolver/Bullet5" method="animate_remove"]
+[connection signal="mouse_entered" from="Buttons/RevolverBulletButtons/TextureButton6" to="Revolver/Bullet6" method="animate_show"]
+[connection signal="mouse_exited" from="Buttons/RevolverBulletButtons/TextureButton6" to="Revolver/Bullet6" method="animate_hide"]
+[connection signal="pressed" from="Buttons/RevolverBulletButtons/TextureButton6" to="Revolver/Bullet6" method="animate_remove"]
+[connection signal="pressed" from="Buttons/Button" to="." method="_on_button_pressed"]

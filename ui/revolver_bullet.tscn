@@ -1,0 +1,162 @@
+[gd_scene load_steps=10 format=3 uid="uid://cwk8yse5b4ja0"]
+
+[ext_resource type="Script" uid="uid://fom1sc7cc035" path="res://ui/revolver_bullet.gd" id="1_gtpwk"]
+[ext_resource type="Texture2D" uid="uid://btdrsxevvctee" path="res://assets/hub/bullet.png" id="1_q28qa"]
+[ext_resource type="Texture2D" uid="uid://del8mugqjte08" path="res://assets/hub/bullet_color_fill.png" id="3_8v8ec"]
+
+[sub_resource type="Animation" id="Animation_msivm"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Bullet:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-282.772, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q28qa"]
+resource_name = "hide_tip"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Bullet:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-256.557, -0.112461, -6.72751, 0.118602, -5.55743, -282.772, -0.113329, 10.124, 0.115561, 6.96405),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="Animation" id="Animation_gtpwk"]
+resource_name = "insert"
+length = 0.7
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Bullet:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.3, 176.112, -282.772, -0.366667, 40.1512, 0.25, 0),
+"times": PackedFloat32Array(0.1, 0.7)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w1hnp"]
+resource_name = "remove"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Bullet:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-256.557, -0.366667, 40.1512, 0.25, 0, 0, -0.233333, -183.032, 0.266667, 0.566618),
+"times": PackedFloat32Array(0, 0.6)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8v8ec"]
+resource_name = "show_tip"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Bullet:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-282.772, -0.26, 0.456726, 0.115561, 6.96405, -256.557, -0.112461, -6.72751, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w1hnp"]
+_data = {
+&"RESET": SubResource("Animation_msivm"),
+&"hide_tip": SubResource("Animation_q28qa"),
+&"insert": SubResource("Animation_gtpwk"),
+&"remove": SubResource("Animation_w1hnp"),
+&"show_tip": SubResource("Animation_8v8ec")
+}
+
+[node name="RevolverBullet" type="Control"]
+layout_mode = 3
+anchor_right = 0.03
+anchor_bottom = 0.076
+offset_right = -115.2
+offset_bottom = -164.16
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(55, 85)
+mouse_filter = 1
+script = ExtResource("1_gtpwk")
+
+[node name="Visual" type="Control" parent="."]
+clip_contents = true
+anchors_preset = 0
+offset_right = 436.0
+offset_bottom = 181.0
+
+[node name="Bullet" type="TextureRect" parent="Visual"]
+layout_mode = 0
+offset_left = -282.772
+offset_right = 111.228
+offset_bottom = 165.0
+texture = ExtResource("1_q28qa")
+
+[node name="BulletColorFill" type="TextureRect" parent="Visual/Bullet"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 314.772
+offset_top = 31.0
+offset_right = 357.772
+offset_bottom = 128.0
+texture = ExtResource("3_8v8ec")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_w1hnp")
+}
