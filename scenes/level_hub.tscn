@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b0uu4bibnhi7p"]
 
-[ext_resource type="Script" uid="uid://bedvwjdohad5v" path="res://scenes/main_menu.gd" id="1_472xg"]
+[ext_resource type="Script" uid="uid://cmnwmrggh6kwk" path="res://scenes/level_hub.gd" id="1_bvpce"]
 [ext_resource type="Texture2D" uid="uid://drlob03ebp1d0" path="res://assets/hub/table.png" id="2_vrqs0"]
 [ext_resource type="Texture2D" uid="uid://dsiit4so6p2jc" path="res://assets/hub/barrel_shadow.png" id="3_bvpce"]
 [ext_resource type="Texture2D" uid="uid://pu2kpgv6vhqi" path="res://assets/hub/revolver_slice_1.png" id="4_tcpmd"]
@@ -18,7 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("1_472xg")
+script = ExtResource("1_bvpce")
 
 [node name="Table" type="TextureRect" parent="."]
 layout_mode = 0
